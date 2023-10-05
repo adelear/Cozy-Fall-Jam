@@ -11,6 +11,7 @@ public class PlayerCamera : MonoBehaviour
     [SerializeField] private float distance = 10f;
     [SerializeField] private float lookaheadDistance = 1.5f;
     [SerializeField] private float cameraSmoothTime = 0.3f;
+    [SerializeField] private float yOffset = 1.5f;
 
     private Vector3 followVel;
 
@@ -22,8 +23,10 @@ public class PlayerCamera : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Vector3 targetPosition = new Vector3(followTarget.transform.position.x, followTarget.transform.position.y, -distance);
-        Vector3 lookahead = followTarget.GetInputVector() * lookaheadDistance;
+        float zPos = followTarget.transform.position.z - distance;
+
+        Vector3 targetPosition = new Vector3(followTarget.transform.position.x, yOffset, zPos);
+        Vector3 lookahead = new Vector3(followTarget.GetInputVector().x * lookaheadDistance, 0, 0);
 
         Vector3 final = targetPosition + lookahead;
 

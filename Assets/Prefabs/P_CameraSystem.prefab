@@ -109,3 +109,4 @@ MonoBehaviour:
   distance: 10
   lookaheadDistance: 1.5
   cameraSmoothTime: 0.3
+  yOffset: 0.75
