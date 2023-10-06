@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [Header("Components")]
-    [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private Rigidbody rb;
 
     [Header("Components")]
     [SerializeField] private float moveSpeed = 5;
@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         if (rb == null)
-            rb = GetComponent<Rigidbody2D>();
+            rb = GetComponent<Rigidbody>();
     }
 
     private void Update()
@@ -36,7 +36,8 @@ public class PlayerController : MonoBehaviour
     {
         float t = Mathf.Clamp01(currentCandy / maxCandy);
         float speed = moveSpeed * CandyToSpeedCurve.Evaluate(t);
-        Vector2 displacement = inputVector * speed * Time.fixedDeltaTime;
+        Vector3 displacement = new Vector3(inputVector.x, 0, inputVector.y);
+        displacement = displacement.normalized * speed * Time.fixedDeltaTime;
         rb.MovePosition(rb.position + displacement);
     }
 
@@ -55,5 +56,11 @@ public class PlayerController : MonoBehaviour
     public float GetCurrentCandy()
     {
         return currentCandy;
+    }
+
+    public Vector2 GetInputVector()
+    {
+        return inputVector;
+
     }
 }
