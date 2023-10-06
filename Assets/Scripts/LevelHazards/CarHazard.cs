@@ -11,7 +11,6 @@ public class CarHazard : LevelHazardBase
     [SerializeField] Transform StartPos;
     [SerializeField] Transform endPos;
 
-
     private float moveDuration;
     private float maxMoveDuration;
 
@@ -47,9 +46,15 @@ public class CarHazard : LevelHazardBase
 
     public override void OnPlayerHit(PlayerController player)
     {
-        Debug.Log("hit player - taking candy");
 
-        player.LoseCandy(candyCost);
+        if (Time.time > timeAtHit + coolDown)
+        {
+            Debug.Log("hit player - taking candy");
+
+            timeAtHit = Time.time;
+
+            player.LoseCandy(candyCost);
+        }
     }
 
     public override void OnHazardSpawn()
@@ -61,7 +66,7 @@ public class CarHazard : LevelHazardBase
 
         maxMoveDuration = Vector3.Distance(StartPos.position, endPos.position) / moveSpeed;
 
-        base.OnHazardSpawn();
+        timeAtHit = 0;
     }
 
     public override void OnHazardDestroy()
@@ -75,10 +80,19 @@ public class CarHazard : LevelHazardBase
         return Vector3.Distance(rb.position, endPos.position) < distThreshold;
     }
 
-    private void OnCollisionEnter(Collision c)
-    {
-        Debug.Log("3d collision !!");
+    //private void OnCollisionEnter(Collision c)
+    //{
+    //    if (c.gameObject.tag != "Player") return;
 
+    //    PlayerController pc = c.transform.GetComponent<PlayerController>();
+
+    //    if (pc)
+    //        OnPlayerHit(pc);
+
+    //}
+
+    private void OnTriggerEnter(Collider c)
+    {
         if (c.gameObject.tag != "Player") return;
 
         PlayerController pc = c.transform.GetComponent<PlayerController>();
@@ -88,8 +102,4 @@ public class CarHazard : LevelHazardBase
 
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        Debug.Log("2D collision !!");
-    }
 }

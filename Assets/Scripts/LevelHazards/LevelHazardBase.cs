@@ -6,15 +6,23 @@ public class LevelHazardBase : MonoBehaviour
 {
     [SerializeField] public int candyCost = 0;
     [SerializeField] public float coolDown = 0;
+    [SerializeField] public float timeAtHit = 0;
 
     public virtual void Awake()
     {
         Debug.Log("hazard Awake : " + gameObject.name);
+        timeAtHit = -coolDown;
     }
 
     public virtual void OnPlayerHit(PlayerController player)
     {
-        Debug.Log("we hit the player - taking candy of value : " + candyCost);
+        if (!player) return;
+
+        if (Time.time > timeAtHit + coolDown)
+        {
+            Debug.Log("Taking " + candyCost +  " candy from player via " + gameObject.name);
+            player.LoseCandy(candyCost);
+        }
     }
 
     public virtual void OnHazardSpawn()
