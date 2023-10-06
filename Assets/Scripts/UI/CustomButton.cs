@@ -8,26 +8,21 @@ using UnityEngine.EventSystems;
 public class CustomButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] private Image image;
-    private TextMeshProUGUI textMesh;
+    [SerializeField] private TextMeshProUGUI textMesh;
 
     [SerializeField] private Color imageNormalColor;
     [SerializeField] private Color imageHighlightColor;
 
-    [SerializeField] private Color normalColor = new Color(244f, 248f, 232f);
-    [SerializeField] private Color hoverColor = new Color(123f, 28f, 20f);
+    [SerializeField] private Color normalTextColor = new Color(244f, 248f, 232f);
+    [SerializeField] private Color hoverTextColor = new Color(123f, 28f, 20f);
 
     [SerializeField] private AudioClip hoverSound;
     [SerializeField] private AudioClip clickSound;
 
-    private void Awake()
-    {
-        textMesh = GetComponentInChildren<TextMeshProUGUI>();
-    }
-
     public void OnPointerEnter(PointerEventData eventData)
     {
         image.color = imageHighlightColor;
-        textMesh.color = hoverColor;
+        textMesh.color = hoverTextColor;
 
         if (hoverSound)
             AudioManager.Instance.PlayAudioSFX(hoverSound);
@@ -36,7 +31,7 @@ public class CustomButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     public void OnPointerExit(PointerEventData eventData)
     {
         image.color = imageNormalColor;
-        textMesh.color = normalColor;
+        textMesh.color = normalTextColor;
 
         if (hoverSound)
             AudioManager.Instance.PlayAudioSFX(clickSound);
