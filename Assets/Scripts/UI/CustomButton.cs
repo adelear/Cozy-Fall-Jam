@@ -18,20 +18,49 @@ public class CustomButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
     [SerializeField] private AudioClip hoverSound;
     [SerializeField] private AudioClip clickSound;
+    [SerializeField] private float transitionTime = 0.1f;
+    [SerializeField] private AnimationCurve transitionCurve;
+
+    private Coroutine transitionRoutine;
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        image.color = imageHighlightColor;
-        textMesh.color = hoverTextColor;
+        //image.color = imageHighlightColor;
+        //textMesh.color = hoverTextColor;
+
+        if (transitionRoutine != null)
+            StopCoroutine(transitionRoutine);
+
+        transitionRoutine = StartCoroutine(ButtonTransition(true));
 
         if (hoverSound)
             AudioManager.Instance.PlayAudioSFX(hoverSound);
     }
 
+    private IEnumerator ButtonTransition(bool hover)
+    {
+        float start = image.fillAmount;
+        float end = hover ? 1 : 0;
+
+        float timeElapsed = 0.0f;
+        while (timeElapsed <= transitionTime)
+        {
+            timeElapsed += Time.unscaledDeltaTime;
+            float t = transitionCurve.Evaluate(timeElapsed / transitionTime);
+            image.fillAmount = Mathf.Lerp(start, end, t);
+            yield return null;
+        }
+    }
+
     public void OnPointerExit(PointerEventData eventData)
     {
-        image.color = imageNormalColor;
-        textMesh.color = normalTextColor;
+        //image.color = imageNormalColor;
+        //textMesh.color = normalTextColor;
+
+        if (transitionRoutine != null)
+            StopCoroutine(transitionRoutine);
+
+        transitionRoutine = StartCoroutine(ButtonTransition(false));
 
         if (hoverSound)
             AudioManager.Instance.PlayAudioSFX(clickSound);
