@@ -144,13 +144,25 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 962ac81ee7116f74f8ad44d0833754b7, type: 2}
+    - target: {fileID: 6566549193894474701, guid: 74be0e44158a7fd47bf9b950ea0901cc, type: 3}
+      propertyPath: m_Mass
+      value: 0.0000001
+      objectReference: {fileID: 0}
     - target: {fileID: 7389681165762063724, guid: 74be0e44158a7fd47bf9b950ea0901cc, type: 3}
       propertyPath: playerRef
       value: 
       objectReference: {fileID: 469557734}
     - target: {fileID: 7389681165762063724, guid: 74be0e44158a7fd47bf9b950ea0901cc, type: 3}
       propertyPath: bullySpeed
-      value: 0.5
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7389681165762063724, guid: 74be0e44158a7fd47bf9b950ea0901cc, type: 3}
+      propertyPath: rangeOfAttack
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7389681165762063724, guid: 74be0e44158a7fd47bf9b950ea0901cc, type: 3}
+      propertyPath: maxCandyToLoose
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 9072019397574147988, guid: 74be0e44158a7fd47bf9b950ea0901cc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -403,6 +415,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 947783713092344700, guid: 4e3dac80e65c19944a7bf2c25809f759, type: 3}
+      propertyPath: currentCandy
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 1812152429616175890, guid: 4e3dac80e65c19944a7bf2c25809f759, type: 3}
       propertyPath: m_Layer
       value: 0
@@ -414,6 +430,14 @@ PrefabInstance:
     - target: {fileID: 6396684278656423852, guid: 4e3dac80e65c19944a7bf2c25809f759, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6797598355149948664, guid: 4e3dac80e65c19944a7bf2c25809f759, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6797598355149948664, guid: 4e3dac80e65c19944a7bf2c25809f759, type: 3}
+      propertyPath: m_Constraints
+      value: 112
       objectReference: {fileID: 0}
     - target: {fileID: 8030491532947977004, guid: 4e3dac80e65c19944a7bf2c25809f759, type: 3}
       propertyPath: m_LocalPosition.x

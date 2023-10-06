@@ -41,13 +41,13 @@ public class PlayerController : MonoBehaviour
         rb.MovePosition(rb.position + displacement);
     }
 
-    public void AddCandy(float amount)
+    public void AddCandy(int amount)
     {
         currentCandy += amount;
         currentCandy = Mathf.Clamp(currentCandy, 0, maxCandy);
     }
 
-    public void LoseCandy(float amount)
+    public void LoseCandy(int amount)
     {
         currentCandy -= amount;
         currentCandy = Mathf.Clamp(currentCandy, 0, maxCandy);
