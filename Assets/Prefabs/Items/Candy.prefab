@@ -98,6 +98,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 290b4bd2c43be6a42af56f8b8a174b9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pickupSFX: {fileID: 0}
+  pickupVFX: {fileID: 4217300812881802610, guid: f0b1947fabe8f9447acf427a94fac311, type: 3}
   minNum: 1
   maxNum: 5
 --- !u!135 &3778682330628932805

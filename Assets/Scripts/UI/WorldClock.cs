@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class WorldClock : MonoBehaviour
 {
-    [SerializeField] private RectTransform clockFill;
+    [SerializeField] private Image clockFill;
     [SerializeField] private RectTransform clockHandle;
     [SerializeField] private float maxTime;
 
@@ -18,12 +18,13 @@ public class WorldClock : MonoBehaviour
         if (GameManager.Instance.GetCurrentState() == GameState.GAME)
         {
             currentTime += Time.deltaTime;
-            
+            clockHandle.eulerAngles = Vector3.Lerp(Vector3.zero, Vector3.forward * 360, currentTime / maxTime);
+            clockFill.fillAmount = Mathf.Lerp(0, 1, currentTime / maxTime);
 
-            if (currentTime <= maxTime)
+            if (currentTime >= maxTime)
             {
                 GameManager.Instance.SwitchState(GameState.DEFEAT);
             }
         }
-    }
+    }    
 }
