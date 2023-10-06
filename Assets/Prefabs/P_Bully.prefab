@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1290097396668086063}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.0114752995, y: 0, z: 0, w: 0.9999342}
+  m_LocalRotation: {x: 0.011471647, y: -0, z: -0, w: 0.9999342}
   m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -55,7 +55,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 962ac81ee7116f74f8ad44d0833754b7, type: 2}
+  - {fileID: 2100000, guid: 24789654ae33f924d8cfb769ef30b413, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -116,7 +116,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1290097396668086063}
   serializedVersion: 4
-  m_Mass: 0.0000001
+  m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -148,12 +148,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerRef: {fileID: 0}
-  patrolPoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  patrolDistThreshhold: 0
-  bullySpeed: 4
-  maxCandyToLoose: 5
+  canSeePlayer: 0
+  bullySpeed: 1
   radius: 10
   angle: 360
   playerLayerMask:
@@ -161,7 +157,5 @@ MonoBehaviour:
     m_Bits: 64
   obstructionLayerMask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 128
   maxDistance: 10
-  attackRate: 5
-  rangeOfAttack: 1.5
