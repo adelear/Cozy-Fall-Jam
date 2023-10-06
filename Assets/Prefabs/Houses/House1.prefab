@@ -98,7 +98,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fa22616568213c43a9706ea687a76a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeSpeed: 1
   spriteA: {fileID: 21300000, guid: 027ce320f10609d4eb39a34a3a405321, type: 3}
   spriteB: {fileID: 21300000, guid: 4b98321739be4134c96cb19f59274c72, type: 3}
   useSpriteA: 1
@@ -116,12 +115,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2178348265222560386, guid: c793bb6661aad994ab059d69f7c41df4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2178348265222560386, guid: c793bb6661aad994ab059d69f7c41df4, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 46
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2178348265222560386, guid: c793bb6661aad994ab059d69f7c41df4, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5237333057751866664, guid: c793bb6661aad994ab059d69f7c41df4, type: 3}
       propertyPath: m_AnchorMax.x
@@ -145,7 +148,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6367396404956045095, guid: c793bb6661aad994ab059d69f7c41df4, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -26.77
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 6367396404956045095, guid: c793bb6661aad994ab059d69f7c41df4, type: 3}
       propertyPath: m_AnchoredPosition.y
