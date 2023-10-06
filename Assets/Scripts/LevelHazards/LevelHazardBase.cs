@@ -12,7 +12,7 @@ public class LevelHazardBase : MonoBehaviour
         Debug.Log("hazard Awake : " + gameObject.name);
     }
 
-    public virtual void OnPlayerHit()
+    public virtual void OnPlayerHit(PlayerController player)
     {
         Debug.Log("we hit the player - taking candy of value : " + candyCost);
     }

@@ -40,14 +40,16 @@ public class CarHazard : LevelHazardBase
 
         Vector3 NewPos = Vector3.Lerp(StartPos.position, endPos.position, moveDuration / maxMoveDuration);
 
-        //transform.position = NewPos;
+        transform.LookAt(endPos);
         rb.MovePosition(NewPos);
     }
   
 
-    public override void OnPlayerHit()
+    public override void OnPlayerHit(PlayerController player)
     {
-        base.OnPlayerHit();
+        Debug.Log("hit player - taking candy");
+
+        player.LoseCandy(candyCost);
     }
 
     public override void OnHazardSpawn()
@@ -71,5 +73,23 @@ public class CarHazard : LevelHazardBase
     private bool AtFinalPos(float distThreshold)
     {
         return Vector3.Distance(rb.position, endPos.position) < distThreshold;
+    }
+
+    private void OnCollisionEnter(Collision c)
+    {
+        Debug.Log("3d collision !!");
+
+        if (c.gameObject.tag != "Player") return;
+
+        PlayerController pc = c.transform.GetComponent<PlayerController>();
+
+        if (pc)
+            OnPlayerHit(pc);
+
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log("2D collision !!");
     }
 }
