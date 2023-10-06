@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 public class PlayerController : MonoBehaviour
 {
     [Header("Components")]
@@ -13,7 +14,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private AnimationCurve CandyToSpeedCurve;
 
     [SerializeField] private Animator anim;
-    [SerializeField] private SpriteRenderer spriteRenderer; 
+    [SerializeField] private SpriteRenderer spriteRenderer;
+
+    public static event Action<PlayerController> OnPlayerCandyChanged;
 
     Vector2 inputVector;
 
@@ -21,8 +24,9 @@ public class PlayerController : MonoBehaviour
     {
         if (rb == null)
             rb = GetComponent<Rigidbody>();
-        if (spriteRenderer == null) spriteRenderer = GetComponent<SpriteRenderer>(); 
-        if (anim == null) anim = GetComponent<Animator>(); 
+
+        if (spriteRenderer == null) spriteRenderer = GetComponentInChildren<SpriteRenderer>(); 
+        if (anim == null) anim = GetComponentInChildren<Animator>(); 
     }
 
     private void Update()
@@ -54,12 +58,14 @@ public class PlayerController : MonoBehaviour
     {
         currentCandy += amount;
         currentCandy = Mathf.Clamp(currentCandy, 0, maxCandy);
+        OnPlayerCandyChanged?.Invoke(this);
     }
 
     public void LoseCandy(int amount)
     {
         currentCandy -= amount;
         currentCandy = Mathf.Clamp(currentCandy, 0, maxCandy);
+        OnPlayerCandyChanged?.Invoke(this);
     }
 
     public float GetCurrentCandy()

@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class DoorInteraction : MonoBehaviour
 {
-    [SerializeField] private int maxCandyToGive = 5;
+    [SerializeField] private int maxCandyToGive;
+    [SerializeField] private int minCandyToGive; 
     [SerializeField] private float askForCandyCooldown = 10;
     [SerializeField] public Slider slider; // temporary HUD Slider
     private PlayerController playerController;
@@ -37,7 +38,7 @@ public class DoorInteraction : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Space) && (currentTime >= askForCandyCooldown))
             {
-                int candyToGive = Random.Range(1, maxCandyToGive);
+                int candyToGive = Random.Range(minCandyToGive, maxCandyToGive); 
                 playerController.AddCandy(candyToGive);
                 canAskForCandy = false;
                 lastTimeAskedCandy = Time.time;
