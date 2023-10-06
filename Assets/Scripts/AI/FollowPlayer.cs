@@ -152,7 +152,6 @@ public class FollowPlayer : MonoBehaviour
                     {
                         int candyToLoose = Random.Range(1, maxCandyToLoose);
                         playerController.LoseCandy(candyToLoose);
-                        playerController.rb
 
                         lastAttackTime = Time.time;
 
