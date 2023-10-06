@@ -1,15 +1,16 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class GameHUD : MonoBehaviour
 {
-    [Header("Components")]
+    [Header("Pages")]
     [SerializeField] private GameObject InGamePanel;
     [SerializeField] private GameObject PausePanel;
     [SerializeField] private GameObject WinPanel;
     [SerializeField] private GameObject LosePanel;
+
+
 
     private Dictionary<GameState, GameObject> GameStatePanelLookup;
 
@@ -25,6 +26,7 @@ public class GameHUD : MonoBehaviour
     private void Start()
     {
         GameManager.Instance.OnGameStateChanged += GM_StateChangedCallback;
+
     }
 
     private void Update()
@@ -34,6 +36,7 @@ public class GameHUD : MonoBehaviour
             if (GameManager.Instance.GetCurrentState() == GameState.GAME)
             {
                 GameManager.Instance.SwitchState(GameState.PAUSE);
+                Time.timeScale = 0.0f;
                 return;
             }
 
@@ -41,6 +44,7 @@ public class GameHUD : MonoBehaviour
             if (GameManager.Instance.GetCurrentState() == GameState.PAUSE)
             {
                 GameManager.Instance.SwitchState(GameState.GAME);
+                Time.timeScale = 1.0f;
                 return;
             }
 
@@ -68,6 +72,23 @@ public class GameHUD : MonoBehaviour
         }
 
         GameStatePanelLookup[state].SetActive(true);
+    }
+
+    public void OnResumeBtn()
+    {
+        GameManager.Instance.SwitchState(GameState.GAME);
+    }
+
+    public void MenuBtn()
+    {
+        Time.timeScale = 1.0f;
+        SceneTransitionManager.Instance.LoadScene("MainMenu");
+    }
+
+    public void OnRestartBtn()
+    {
+        Time.timeScale = 1.0f;
+        SceneTransitionManager.Instance.RestartScene();
     }
 
     private void OnDestroy()
