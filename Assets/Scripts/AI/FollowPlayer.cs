@@ -15,12 +15,15 @@ public class FollowPlayer : MonoBehaviour
     [Range(0, 360)] [SerializeField] private float angle = 360f;
     [SerializeField] private LayerMask playerLayerMask;
     [SerializeField] private LayerMask obstructionLayerMask;
+    [SerializeField] private LayerMask obstacleToAvoid;
     [SerializeField] private float maxDistance = 20f;
     [SerializeField] private float attackRate = 5f;
     [SerializeField] private float rangeOfAttack = 1f;
     [SerializeField] private float patrolDistThreshhold = 0.9f;
     [SerializeField] private float waitAtPatrolPoint = 3f;
     [SerializeField] private float knockbackForce = 50f;
+    [SerializeField] private float obstacleOvoidanceRadius = 1f;
+    [SerializeField] private float obstacleOvoidanceDistance = 2f;
 
     private int currentPatrolPointIndex;
     private bool canSeePlayer;
@@ -84,10 +87,8 @@ public class FollowPlayer : MonoBehaviour
                 break;
 
             case EnemyState.ATTACK:
-
                 break;
         }
-
     }
 
     // Checks if player is in field of view
@@ -109,7 +110,7 @@ public class FollowPlayer : MonoBehaviour
 
                 LayerMask layerMask = (bullyState == EnemyState.CHASE) ? default : obstructionLayerMask;
 
-                if (distanceToPlayer <= maxDistance && !Physics.Raycast(transform.position, directionToPlayer,out hit, distanceToPlayer, layerMask))
+                if (distanceToPlayer <= maxDistance && !Physics.Raycast(transform.position, directionToPlayer, out hit, distanceToPlayer, layerMask))
                 {
                     canSeePlayer = true;
                 }
@@ -143,30 +144,43 @@ public class FollowPlayer : MonoBehaviour
             // Check if the player is within the field of view
             if (Vector3.Angle(transform.forward, directionToPlayer) < angle / 2)
             {
-                // Continue chasing the player as long as they are within the field of view
-                rb.velocity = directionToPlayer * bullySpeed;
 
-                // Bully Gets candy from player
-                if (distanceToPlayer <= rangeOfAttack)
+                RaycastHit obstacleHit;
+                if (!Physics.SphereCast(transform.position, obstacleOvoidanceRadius, directionToPlayer, out obstacleHit, obstacleOvoidanceDistance, obstacleToAvoid))
                 {
-                    if (Time.time - lastAttackTime >= attackRate)
+
+                    // Continue chasing the player as long as they are within the field of view
+                    rb.velocity = directionToPlayer * bullySpeed;
+
+                    // Bully Gets candy from player
+                    if (distanceToPlayer <= rangeOfAttack)
                     {
-                        int candyToLoose = Random.Range(1, maxCandyToLoose);
-                        // Player loose canddy
-                        playerController.LoseCandy(candyToLoose);
+                        if (Time.time - lastAttackTime >= attackRate)
+                        {
+                            int candyToLoose = Random.Range(1, maxCandyToLoose);
+                            // Player loose canddy
+                            playerController.LoseCandy(candyToLoose);
 
-                        // Player knockback
-                        Rigidbody playerRigidbody = playerController.GetComponent<Rigidbody>();
-                        Vector3 knockbackDirection = (playerController.transform.position - transform.position).normalized;
-                        playerRigidbody.AddForce(knockbackDirection * knockbackForce, ForceMode.Impulse);
+                            // Player knockback
+                            Rigidbody playerRigidbody = playerController.GetComponent<Rigidbody>();
+                            Vector3 knockbackDirection = (playerController.transform.position - transform.position).normalized;
+                            playerRigidbody.AddForce(knockbackDirection * knockbackForce, ForceMode.Impulse);
 
-                        lastAttackTime = Time.time;
+                            lastAttackTime = Time.time;
 
-                        // Stop following the player after stealing candy
-                        shouldFollowPlayer = false;
-                        StartCoroutine(ResumeFollowingPlayer());
+                            // Stop following the player after stealing candy
+                            shouldFollowPlayer = false;
+                            StartCoroutine(ResumeFollowingPlayer());
+                        }
                     }
-
+                }
+                else
+                {
+                    // Obstacle detected, calculate a new direction to avoid it
+                    Vector3 hitNormal = obstacleHit.normal;
+                    Vector3 newDirection = Vector3.Cross(hitNormal, Vector3.up); // Calculate a direction perpendicular to the obstacle
+                    newDirection.y = 0; // Ignore the y-axis
+                    rb.velocity = newDirection.normalized * bullySpeed;
                 }
             }
             else
