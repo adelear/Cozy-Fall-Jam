@@ -29,8 +29,9 @@ public class DoorInteraction : MonoBehaviour
 
         if (currentTime >= askForCandyCooldown)
         {
-            canAskForCandy = true;
+            if (!canAskForCandy) canAskForCandy = true;
         }
+        else canAskForCandy = false; 
 
         if (isOnDoor && canAskForCandy)
         {
@@ -55,7 +56,7 @@ public class DoorInteraction : MonoBehaviour
             Debug.Log("Player on door");
             playerController = other.GetComponent<PlayerController>();
             isOnDoor = true;
-            canAskForCandy = true;
+            //canAskForCandy = true;
         }
     }
 
@@ -71,6 +72,11 @@ public class DoorInteraction : MonoBehaviour
     public void UpdateDoorHUDTimer(float curenthealth)
     {
         slider.value = curenthealth;
+    }
+
+    public bool GetCanAskforCandy()
+    {
+        return canAskForCandy; 
     }
 
 }
