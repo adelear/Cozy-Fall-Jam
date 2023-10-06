@@ -13,9 +13,6 @@ public class FollowPlayer : MonoBehaviour
     [SerializeField] private int maxCandyToLoose = 5;
     [SerializeField] private float radius = 15f;
     [Range(0, 360)] [SerializeField] private float angle = 360f;
-    [SerializeField] private LayerMask playerLayerMask;
-    [SerializeField] private LayerMask obstructionLayerMask;
-    [SerializeField] private LayerMask obstacleToAvoid;
     [SerializeField] private float maxDistance = 20f;
     [SerializeField] private float attackRate = 5f;
     [SerializeField] private float rangeOfAttack = 1f;
@@ -24,6 +21,11 @@ public class FollowPlayer : MonoBehaviour
     [SerializeField] private float knockbackForce = 50f;
     [SerializeField] private float obstacleOvoidanceRadius = 1f;
     [SerializeField] private float obstacleOvoidanceDistance = 2f;
+
+    [Header("Layers Mask")]
+    [SerializeField] private LayerMask playerLayerMask;
+    [SerializeField] private LayerMask obstructionLayerMask;
+    [SerializeField] private LayerMask obstacleToAvoid;
 
     private int currentPatrolPointIndex;
     private bool canSeePlayer;
@@ -37,7 +39,7 @@ public class FollowPlayer : MonoBehaviour
 
     private EnemyState bullyState;
 
-    void Start()
+    private void Start()
     {
         if (playerRef)
         {
@@ -53,7 +55,7 @@ public class FollowPlayer : MonoBehaviour
         InvokeRepeating("FieldOfViewCheck", 0f, 0.2f); // Check FOV every 0.2 seconds
     }
 
-    void Update()
+    private void Update()
     {
         distanceToPlayer = Vector3.Distance(transform.position, player.position);
         directionToPlayer = (player.position - transform.position).normalized;
@@ -94,7 +96,6 @@ public class FollowPlayer : MonoBehaviour
     // Checks if player is in field of view
     private void FieldOfViewCheck()
     {
-
         // Check for colitions in the radius of sphere cast
         Collider[] rangeChecks = Physics.OverlapSphere(transform.position, radius, playerLayerMask);
 
@@ -140,15 +141,12 @@ public class FollowPlayer : MonoBehaviour
     {
         if (canSeePlayer && shouldFollowPlayer)
         {
-
             // Check if the player is within the field of view
             if (Vector3.Angle(transform.forward, directionToPlayer) < angle / 2)
             {
-
                 RaycastHit obstacleHit;
                 if (!Physics.SphereCast(transform.position, obstacleOvoidanceRadius, directionToPlayer, out obstacleHit, obstacleOvoidanceDistance, obstacleToAvoid))
                 {
-
                     // Continue chasing the player as long as they are within the field of view
                     rb.velocity = directionToPlayer * bullySpeed;
 
@@ -178,20 +176,18 @@ public class FollowPlayer : MonoBehaviour
                 {
                     // Obstacle detected, calculate a new direction to avoid it
                     Vector3 hitNormal = obstacleHit.normal;
-                    Vector3 newDirection = Vector3.Cross(hitNormal, Vector3.up); // Calculate a direction perpendicular to the obstacle
-                    newDirection.y = 0; // Ignore the y-axis
+                    Vector3 newDirection = Vector3.Cross(hitNormal, Vector3.up);
+                    newDirection.y = 0; 
                     rb.velocity = newDirection.normalized * bullySpeed;
                 }
             }
             else
             {
-                // Player is outside the field of view, switch to PATROL
                 SwitchState(EnemyState.PATROL);
             }
         }
         else
         {
-            // Player is no longer visible, switch to PATROL
             SwitchState(EnemyState.PATROL);
         }
     }
@@ -208,7 +204,7 @@ public class FollowPlayer : MonoBehaviour
     {
         if (!canSeePlayer) 
         { 
-            // direction and distance to the current patrol point
+            // Direction and distance to the current patrol point
             Vector3 targetDirection = (patrolPoints[currentPatrolPointIndex].position - transform.position).normalized;
             float distanceToTarget = Vector3.Distance(transform.position, patrolPoints[currentPatrolPointIndex].position);
 
