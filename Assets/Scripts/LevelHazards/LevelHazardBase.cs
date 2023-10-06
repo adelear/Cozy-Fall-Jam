@@ -6,10 +6,12 @@ public class LevelHazardBase : MonoBehaviour
 {
     [SerializeField] public int candyCost = 0;
     [SerializeField] public float coolDown = 0;
+    [SerializeField] public float timeAtHit = 0;
 
     public virtual void Awake()
     {
         Debug.Log("hazard Awake : " + gameObject.name);
+        timeAtHit = 0;
     }
 
     public virtual void OnPlayerHit(PlayerController player)
