@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour
         float t = Mathf.Clamp01(currentCandy / maxCandy);
         float speed = moveSpeed * CandyToSpeedCurve.Evaluate(t);
         Vector3 displacement = new Vector3(inputVector.x, 0, inputVector.y);
-        displacement = displacement * speed * Time.fixedDeltaTime;
+        displacement = displacement.normalized * speed * Time.fixedDeltaTime;
         rb.MovePosition(rb.position + displacement);
     }
 

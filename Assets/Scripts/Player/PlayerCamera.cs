@@ -23,7 +23,20 @@ public class PlayerCamera : MonoBehaviour
 
     private void FixedUpdate()
     {
-        float zPos = followTarget.transform.position.z - distance;
+
+        float zPos = 0;
+
+        Vector3 dirToPlayer = transform.position - followTarget.transform.position;
+        Ray ray = new Ray(followTarget.transform.position, dirToPlayer.normalized);
+        if (Physics.Raycast(ray, out RaycastHit hit, distance))
+        {
+            zPos = hit.point.z;
+        }
+
+        else
+        {
+            zPos = followTarget.transform.position.z - distance;
+        }
 
         Vector3 targetPosition = new Vector3(followTarget.transform.position.x, yOffset, zPos);
         Vector3 lookahead = new Vector3(followTarget.GetInputVector().x * lookaheadDistance, 0, 0);
