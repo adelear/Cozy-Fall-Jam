@@ -150,6 +150,10 @@ PrefabInstance:
       propertyPath: maxCandyToGive
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 1299758693824136349, guid: c793bb6661aad994ab059d69f7c41df4, type: 3}
+      propertyPath: minCandyToGive
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2178348265222560386, guid: c793bb6661aad994ab059d69f7c41df4, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
