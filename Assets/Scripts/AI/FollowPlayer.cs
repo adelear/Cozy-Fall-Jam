@@ -7,12 +7,12 @@ public class FollowPlayer : MonoBehaviour
     [Header("Components")]
     [SerializeField] private GameObject playerRef;
     [SerializeField] private Transform[] patrolPoints;
-   
+
     [Header("Settings")]
-    [SerializeField] private float bullySpeed;
+    [SerializeField] private float bullySpeed = 4f;
     [SerializeField] private int maxCandyToLoose = 5;
-    [SerializeField] private float radius;
-    [Range(0, 360)] [SerializeField] private float angle;
+    [SerializeField] private float radius = 15f;
+    [Range(0, 360)] [SerializeField] private float angle = 360f;
     [SerializeField] private LayerMask playerLayerMask;
     [SerializeField] private LayerMask obstructionLayerMask;
     [SerializeField] private float maxDistance = 20f;
@@ -20,6 +20,7 @@ public class FollowPlayer : MonoBehaviour
     [SerializeField] private float rangeOfAttack = 1f;
     [SerializeField] private float patrolDistThreshhold = 0.9f;
     [SerializeField] private float waitAtPatrolPoint = 3f;
+    [SerializeField] private float knockbackForce = 50f;
 
     private int currentPatrolPointIndex;
     private bool canSeePlayer;
@@ -44,8 +45,6 @@ public class FollowPlayer : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         canSeePlayer = false;
 
-       
-       
         SwitchState(EnemyState.PATROL);
       
         InvokeRepeating("FieldOfViewCheck", 0f, 0.2f); // Check FOV every 0.2 seconds
@@ -94,6 +93,7 @@ public class FollowPlayer : MonoBehaviour
     // Checks if player is in field of view
     private void FieldOfViewCheck()
     {
+
         // Check for colitions in the radius of sphere cast
         Collider[] rangeChecks = Physics.OverlapSphere(transform.position, radius, playerLayerMask);
 
@@ -139,6 +139,7 @@ public class FollowPlayer : MonoBehaviour
     {
         if (canSeePlayer && shouldFollowPlayer)
         {
+
             // Check if the player is within the field of view
             if (Vector3.Angle(transform.forward, directionToPlayer) < angle / 2)
             {
@@ -151,7 +152,13 @@ public class FollowPlayer : MonoBehaviour
                     if (Time.time - lastAttackTime >= attackRate)
                     {
                         int candyToLoose = Random.Range(1, maxCandyToLoose);
+                        // Player loose canddy
                         playerController.LoseCandy(candyToLoose);
+
+                        // Player knockback
+                        Rigidbody playerRigidbody = playerController.GetComponent<Rigidbody>();
+                        Vector3 knockbackDirection = (playerController.transform.position - transform.position).normalized;
+                        playerRigidbody.AddForce(knockbackDirection * knockbackForce, ForceMode.Impulse);
 
                         lastAttackTime = Time.time;
 
@@ -159,6 +166,7 @@ public class FollowPlayer : MonoBehaviour
                         shouldFollowPlayer = false;
                         StartCoroutine(ResumeFollowingPlayer());
                     }
+
                 }
             }
             else
