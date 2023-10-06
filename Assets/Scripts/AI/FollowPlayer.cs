@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class FollowPlayer : MonoBehaviour
 {
+    [Header("Components")]
     [SerializeField] private GameObject playerRef;
+    [SerializeField] private Transform[] patrolPoints;
    
     [Header("Settings")]
     [SerializeField] private float bullySpeed;
@@ -16,8 +18,10 @@ public class FollowPlayer : MonoBehaviour
     [SerializeField] private float maxDistance = 20f;
     [SerializeField] private float attackRate = 5f;
     [SerializeField] private float rangeOfAttack = 1f;
+    [SerializeField] private float patrolDistThreshhold = 0.9f;
+    [SerializeField] private float waitAtPatrolPoint = 3f;
 
-
+    private int currentPatrolPointIndex;
     private bool canSeePlayer;
     private bool shouldFollowPlayer = true;
     private Transform player;
@@ -27,6 +31,7 @@ public class FollowPlayer : MonoBehaviour
     private PlayerController playerController;
     private float lastAttackTime = 0f;
 
+    private EnemyState bullyState;
 
     void Start()
     {
@@ -39,47 +44,56 @@ public class FollowPlayer : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         canSeePlayer = false;
 
+       
+       
+        SwitchState(EnemyState.PATROL);
+      
         InvokeRepeating("FieldOfViewCheck", 0f, 0.2f); // Check FOV every 0.2 seconds
     }
 
     void Update()
     {
-
-        if (!player || !playerController) { return; }
-
         distanceToPlayer = Vector3.Distance(transform.position, player.position);
         directionToPlayer = (player.position - transform.position).normalized;
+       
+        HandleStateMachine();
+        FieldOfViewCheck();
+        Debug.DrawRay(transform.position, directionToPlayer * distanceToPlayer, canSeePlayer ? Color.green : Color.red);
+        Debug.Log("EnemyState: " + bullyState);
+    }
 
-        if (canSeePlayer && shouldFollowPlayer) 
+    public void SwitchState(EnemyState newState)
+    {
+        bullyState = newState;
+    }
+
+    // Bully StateMachine
+    public void HandleStateMachine()
+    {
+        switch (bullyState)
         {
-            rb.velocity = directionToPlayer * bullySpeed;
+            case EnemyState.IDLE:
+                Idle();
+                break;
 
-            // Bully Gets candy from player
-            if (distanceToPlayer <= rangeOfAttack)
-            {
-                if (Time.time - lastAttackTime >= attackRate)
-                {
-                    int candyToLoose = Random.Range(1, maxCandyToLoose);
-                    playerController.LoseCandy(candyToLoose);
+            case EnemyState.PATROL:
+                Patrol();
+                break;
 
-                    lastAttackTime = Time.time;
+            case EnemyState.CHASE:
+                ChasePlayer();
+                break;
 
-                    // Stop following the player after steling candy
-                    shouldFollowPlayer = false;
-                    StartCoroutine(ResumeFollowingPlayer());
-                }
-            }
+            case EnemyState.ATTACK:
+
+                break;
         }
-        else
-        {
-            rb.velocity = Vector3.zero;
-        }
+
     }
 
     // Checks if player is in field of view
     private void FieldOfViewCheck()
     {
-
         // Check for colitions in the radius of sphere cast
         Collider[] rangeChecks = Physics.OverlapSphere(transform.position, radius, playerLayerMask);
 
@@ -87,15 +101,18 @@ public class FollowPlayer : MonoBehaviour
         if (rangeChecks.Length != 0)
         {
             Transform target = rangeChecks[0].transform;
-            //Vector3 directionToTarget = (target.position - transform.position).normalized;
 
             // If target is in the sector of field of view
             if (Vector3.Angle(transform.forward, directionToPlayer) < angle / 2)
             {
-                //float distancetoTarget = Vector3.Distance(transform.position, target.position);
+                RaycastHit hit;
 
-                if (distanceToPlayer <= maxDistance && !Physics.Raycast(transform.position, directionToPlayer, distanceToPlayer, obstructionLayerMask))
+                LayerMask layerMask = (bullyState == EnemyState.CHASE) ? default : obstructionLayerMask;
+
+                if (distanceToPlayer <= maxDistance && !Physics.Raycast(transform.position, directionToPlayer,out hit, distanceToPlayer, layerMask))
+                {
                     canSeePlayer = true;
+                }
                 else
                     canSeePlayer = false;
             }
@@ -106,11 +123,118 @@ public class FollowPlayer : MonoBehaviour
             canSeePlayer = false;
     }
 
+    // Idle State
+    private void Idle()
+    {
+        if (canSeePlayer) 
+        {
+            SwitchState(EnemyState.CHASE);
+        }
+        else
+            rb.velocity = Vector3.zero;
+    }
+
+    // Chase State
+    private void ChasePlayer()
+    {
+        if (canSeePlayer && shouldFollowPlayer)
+        {
+            // Check if the player is within the field of view
+            if (Vector3.Angle(transform.forward, directionToPlayer) < angle / 2)
+            {
+                // Continue chasing the player as long as they are within the field of view
+                rb.velocity = directionToPlayer * bullySpeed;
+
+                // Bully Gets candy from player
+                if (distanceToPlayer <= rangeOfAttack)
+                {
+                    if (Time.time - lastAttackTime >= attackRate)
+                    {
+                        int candyToLoose = Random.Range(1, maxCandyToLoose);
+                        playerController.LoseCandy(candyToLoose);
+                        playerController.rb
+
+                        lastAttackTime = Time.time;
+
+                        // Stop following the player after stealing candy
+                        shouldFollowPlayer = false;
+                        StartCoroutine(ResumeFollowingPlayer());
+                    }
+                }
+            }
+            else
+            {
+                // Player is outside the field of view, switch to PATROL
+                SwitchState(EnemyState.PATROL);
+            }
+        }
+        else
+        {
+            // Player is no longer visible, switch to PATROL
+            SwitchState(EnemyState.PATROL);
+        }
+    }
+
     // Coroutine to resume following the player after a delay
     private IEnumerator ResumeFollowingPlayer()
     {
-        yield return new WaitForSeconds(attackRate); // Wait for attackRate seconds
+        yield return new WaitForSeconds(attackRate);
         shouldFollowPlayer = true; // Resume following the player
+    }
+
+    // Patrol State
+    private void Patrol()
+    {
+        if (!canSeePlayer) 
+        { 
+            // direction and distance to the current patrol point
+            Vector3 targetDirection = (patrolPoints[currentPatrolPointIndex].position - transform.position).normalized;
+            float distanceToTarget = Vector3.Distance(transform.position, patrolPoints[currentPatrolPointIndex].position);
+
+            //  If enemy reached the current patrol point switch to next patrol point
+            if (distanceToTarget <= patrolDistThreshhold)
+            {
+                // Start waiting at the current patrol point
+                StartCoroutine(WaitAtPatrolPoint());
+
+                // Move to the next patrol point
+                currentPatrolPointIndex++;
+                currentPatrolPointIndex %= patrolPoints.Length;
+                SwitchState(EnemyState.IDLE);
+            }
+            else
+            {
+                rb.velocity = targetDirection * bullySpeed;
+            }
+        }
+        if (canSeePlayer) 
+        {
+            if (bullyState != EnemyState.CHASE)
+            {
+                SwitchState(EnemyState.CHASE);
+            }
+        }
+    }
+
+    private IEnumerator WaitAtPatrolPoint()
+    {
+        yield return new WaitForSeconds(waitAtPatrolPoint);
+
+        // Resume patrolling
+        if (canSeePlayer)
+        {
+            SwitchState(EnemyState.CHASE);
+        }
+        else
+            SwitchState(EnemyState.PATROL);
+    }
+
+    public enum EnemyState
+    {
+        IDLE,
+        PATROL,
+        CHASE,
+        ATTACK,
     }
 
     private void OnDrawGizmosSelected()
