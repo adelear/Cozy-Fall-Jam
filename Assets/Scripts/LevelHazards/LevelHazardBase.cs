@@ -11,12 +11,18 @@ public class LevelHazardBase : MonoBehaviour
     public virtual void Awake()
     {
         Debug.Log("hazard Awake : " + gameObject.name);
-        timeAtHit = 0;
+        timeAtHit = -coolDown;
     }
 
     public virtual void OnPlayerHit(PlayerController player)
     {
-        Debug.Log("we hit the player - taking candy of value : " + candyCost);
+        if (!player) return;
+
+        if (Time.time > timeAtHit + coolDown)
+        {
+            Debug.Log("Taking " + candyCost +  " candy from player via " + gameObject.name);
+            player.LoseCandy(candyCost);
+        }
     }
 
     public virtual void OnHazardSpawn()
