@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5985091605862369260}
   - component: {fileID: 1873120393434824011}
+  - component: {fileID: 7710840532160264983}
   m_Layer: 0
   m_Name: PineTree
   m_TagString: Untagged
@@ -84,3 +85,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!65 &7710840532160264983
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5181037789550145702}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.5155888, y: 20.48, z: 3.9851809}
+  m_Center: {x: 0.20479298, y: 0, z: -1.210856}
