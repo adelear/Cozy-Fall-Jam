@@ -119,7 +119,7 @@ public class PlayerController : MonoBehaviour
 
         while (tempDuration >= 0)
         {
-            Debug.Log("manipulating tform...");
+            //Debug.Log("manipulating tform...");
 
             transform.Translate((Vector3.down * teleMoveSpeed * Time.deltaTime), Space.World);
 
@@ -146,7 +146,7 @@ public class PlayerController : MonoBehaviour
         while (tempDuration <= teleRiseDuration)
         {
 
-            Debug.Log("manipulating tform BUT IN REVERSE...");
+            //Debug.Log("manipulating tform BUT IN REVERSE...");
 
             transform.position = Vector3.Lerp(tempPos, destination, tempDuration / teleRiseDuration);
             
@@ -155,7 +155,7 @@ public class PlayerController : MonoBehaviour
             yield return null;
         }
 
-        Debug.Log("End of teleport");
+        //Debug.Log("End of teleport");
         isTeleporting = false;
 
     }
