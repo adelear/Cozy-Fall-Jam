@@ -108,4 +108,14 @@ public class LevelManager : MonoBehaviour
         }
         return false;
     }
+
+    public LevelData GetCurrentLevelData()
+    {
+        return levels[currentLevel];
+    }
+
+    public int GetCandyGiven()
+    {
+        return candyGiven;
+    }
 }

@@ -7,6 +7,7 @@ public class CandyCounterUI : MonoBehaviour
 {
     [Header("Components")]
     [SerializeField] private TextMeshProUGUI candyText;
+    [SerializeField] private TextMeshProUGUI monsterCandyText;
     [SerializeField] private Image candyImage;
 
     [SerializeField] private float wobbleTime = 0.3f;
@@ -19,10 +20,18 @@ public class CandyCounterUI : MonoBehaviour
     private void Start()
     {
         PlayerController.OnPlayerCandyChanged += Player_CandyChangedCallback;
+
+        var data = LevelManager.Instance.GetCurrentLevelData();
+        int remaining = data.requiredTreats - LevelManager.Instance.GetCandyGiven();
+        monsterCandyText.text = $"Remaining Candy: {remaining}";
     }
 
     private void Player_CandyChangedCallback(PlayerController player)
     {
+        var data = LevelManager.Instance.GetCurrentLevelData();
+        int remaining = data.requiredTreats - LevelManager.Instance.GetCandyGiven();
+        monsterCandyText.text = $"Remaining Candy: {remaining}";
+
         candyText.text = player.GetCurrentCandy().ToString();
         if (isWobbling == false)
             StartCoroutine(HandleCandyEffect());
