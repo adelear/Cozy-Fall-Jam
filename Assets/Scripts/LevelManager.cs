@@ -42,33 +42,30 @@ public class LevelManager : MonoBehaviour
     private void Update()
     {
         candyGiven = monster.GetMonsterTreats();
-        Debug.Log("Candy Given: " + candyGiven); 
-        if (!LevelCompleted())
+        if (PlayerWinsLevel())
         {
-            currentTime += Time.deltaTime; 
+            currentLevel++;
 
-            if (LevelCompleted())
+            if (currentLevel < levels.Length)
             {
-                if (PlayerWinsLevel())
-                {
-                    currentLevel++;
-
-                    if (currentLevel < levels.Length)
-                    {
-                        LoadLevel(currentLevel);
-                    }
-                    else
-                    {
-                        Debug.Log("Game Completed!");
-                    }
-                }
-                else
-                {
-                    Debug.Log("GameOver!"); 
-                }
+                LoadLevel(currentLevel);
+                return; 
+            }
+            else
+            {
+                Debug.Log("Game Completed!");
             }
         }
+        if (LevelCompleted())
+        {
+            Debug.Log("GameOver!");
+        }
+        else
+        {
+            currentTime += Time.deltaTime;
+        }
     }
+ 
 
     private bool PlayerWinsLevel()
     {
@@ -82,7 +79,7 @@ public class LevelManager : MonoBehaviour
     private void LoadLevel(int levelNum)
     {
         levelCompleted = false;
-
+        //Reset Time 
         Debug.Log("Level " + (levelNum + 1) + " Loaded");
     }
 
