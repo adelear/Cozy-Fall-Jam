@@ -153,8 +153,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 399b44df9d16e0343a1034a53bc6453c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 6797598355149948664}
-  moveSpeed: 5
+  rb: {fileID: 0}
+  moveSpeed: 20
   currentCandy: 0
   maxCandy: 100
   CandyToSpeedCurve:
@@ -181,6 +181,19 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  anim: {fileID: 0}
+  spriteRenderer: {fileID: 0}
+  teleRadius: 50
+  teleDelay: 2
+  teleDuration: 1
+  teleRiseDuration: 1.25
+  teleMoveSpeed: 20
+  teleMoveShakeX: 20
+  teleMoveShakeY: 20
+  teleMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  isTeleporting: 0
 --- !u!54 &6797598355149948664
 Rigidbody:
   m_ObjectHideFlags: 0

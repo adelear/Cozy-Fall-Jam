@@ -29,6 +29,15 @@ public class MonsterManager : MonoBehaviour
         }
     }
 
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerInCollider = false;
+            Debug.Log("Leaving monster area!");
+        }
+    } 
+
     public int GetMonsterTreats()
     {
         return monsterTreats; 
@@ -36,7 +45,7 @@ public class MonsterManager : MonoBehaviour
 
     private void Update()
     {
-        if (playerInCollider && playerHasCandy)
+        if (playerInCollider)
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
