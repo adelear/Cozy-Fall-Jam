@@ -9,7 +9,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private MonsterManager monster;
     //[SerializeField] private int startingLevel = 0;
 
-    private int currentLevel = 0;
+    private int currentLevel;
     private float currentTime = 0;
     private int candyGiven;
 
@@ -36,23 +36,23 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
-        
         if (timer == null) Debug.Log("Add WorldClock to Level Manager Script!");
         if (monster == null) Debug.Log("Add MonsterManager to Level Manager Script!");
-        GameManager.Instance.SwitchState(GameState.GAME);  
+        GameManager.Instance.SwitchState(GameState.GAME);
         string activeSceneName = SceneManager.GetActiveScene().name;
-        
+        Debug.Log("Active Scene Name: " + activeSceneName);
+
         if (activeSceneName.StartsWith("Level "))
         {
             int levelNumber;
             if (int.TryParse(activeSceneName.Substring("Level ".Length), out levelNumber))
             {
-                currentLevel = levelNumber - 1;
+                currentLevel = levelNumber - 1; 
+                Debug.Log("Current Level: " + currentLevel);
             }
         }
-
         LevelData currentLevelData = levels[currentLevel];
-    }
+    } 
 
     private void Update()
     {
@@ -60,10 +60,9 @@ public class LevelManager : MonoBehaviour
 
         if (PlayerWinsLevel())
         {
-            currentLevel++;
-
-            if (currentLevel < levels.Length)
+            if ((currentLevel+1) < levels.Length)
             {
+                currentLevel++; 
                 LoadLevel(currentLevel);
                 return;
             }
@@ -93,7 +92,7 @@ public class LevelManager : MonoBehaviour
 
     private bool PlayerWinsLevel()
     {
-        if (candyGiven >= levels[currentLevel].requiredTreats)
+        if (currentLevel >= 0 && currentLevel < levels.Length && candyGiven >= levels[currentLevel].requiredTreats)
         {
             return true;
         }
@@ -117,5 +116,20 @@ public class LevelManager : MonoBehaviour
     public int GetCandyGiven()
     {
         return candyGiven;
+    }
+
+    public int GetCurrentLevel()
+    {
+        string activeSceneName = SceneManager.GetActiveScene().name; 
+        if (activeSceneName.StartsWith("Level "))
+        {
+            int levelNumber;
+            if (int.TryParse(activeSceneName.Substring("Level ".Length), out levelNumber))
+            {
+                currentLevel = levelNumber - 1;
+                Debug.Log("Current Level: " + currentLevel);
+            }
+        }
+        return currentLevel; 
     }
 }
