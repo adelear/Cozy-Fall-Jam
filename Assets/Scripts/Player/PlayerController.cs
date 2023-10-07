@@ -16,6 +16,20 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Animator anim;
     [SerializeField] private SpriteRenderer spriteRenderer;
 
+    [Header("PlayerMechanics")]
+    [SerializeField] private int teleRadius = 10;
+    [SerializeField] private float teleDelay = 2.75f;
+    [SerializeField] private float teleDuration = 1.0f;
+    [SerializeField] private float teleRiseDuration = 1.0f;
+    [SerializeField] private float teleMoveSpeed = 5.0f;
+    [SerializeField] private float teleMoveShakeX = 5.0f;
+    [SerializeField] private float teleMoveShakeY = 5.0f;
+    [SerializeField] private bool canTele = true;
+    [SerializeField] LayerMask teleMask;
+    
+    private float timeAtTele = 0;
+    public bool isTeleporting = false; //sorry its 3:07 am
+
     public static event Action<PlayerController> OnPlayerCandyChanged;
 
     Vector2 inputVector;
@@ -43,6 +57,22 @@ public class PlayerController : MonoBehaviour
         {
             AddCandy(20);
         }
+
+        if (Input.GetMouseButtonUp(0) && canTele)
+        {
+            //if we are eligable to teleport - cooldown or currently teleporting
+            if (Time.time < timeAtTele + teleDelay || isTeleporting) return;
+
+            Ray mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+            if (Physics.Raycast(mouseRay, out RaycastHit hit, 500, teleMask))
+            {
+                //destination in teleport radius ?
+                if (Vector3.Distance(hit.point, rb.position) > teleRadius) return;
+
+                StartCoroutine(BeginTeleport(hit.point));
+            }
+        }
     }
 
     private void FixedUpdate()
@@ -52,6 +82,8 @@ public class PlayerController : MonoBehaviour
         Vector3 displacement = new Vector3(inputVector.x, 0, inputVector.y);
         displacement = displacement.normalized * speed * Time.fixedDeltaTime;
         rb.MovePosition(rb.position + displacement);
+
+       
     }
 
     public void AddCandy(int amount)
@@ -76,6 +108,55 @@ public class PlayerController : MonoBehaviour
     public Vector2 GetInputVector()
     {
         return inputVector;
+
+    }
+
+    private IEnumerator BeginTeleport(Vector3 destination)
+    {
+        isTeleporting = true;
+
+        float tempDuration = teleDuration;
+
+        while (tempDuration >= 0)
+        {
+            Debug.Log("manipulating tform...");
+
+            transform.Translate((Vector3.down * teleMoveSpeed * Time.deltaTime), Space.World);
+
+
+            //float xNoise = Mathf.PerlinNoise(teleMoveShakeX, teleMoveShakeY);
+            Vector3 xAxiNoise = Vector3.right * (UnityEngine.Random.Range(-teleMoveShakeX, teleMoveShakeY) * Time.deltaTime);
+
+            transform.Translate(xAxiNoise);
+           // transform.Translate(newPos);
+            
+            
+            tempDuration -= Time.deltaTime;
+
+            yield return null;
+        }
+
+        rb.position = new Vector3(destination.x, transform.position.y, destination.z);
+
+        Vector3 tempPos = rb.position;
+
+        //uncomment to make camera move when player enters underground.
+        //isTeleporting = false;
+
+        while (tempDuration <= teleRiseDuration)
+        {
+
+            Debug.Log("manipulating tform BUT IN REVERSE...");
+
+            transform.position = Vector3.Lerp(tempPos, destination, tempDuration / teleRiseDuration);
+            
+            tempDuration += Time.deltaTime;
+
+            yield return null;
+        }
+
+        Debug.Log("End of teleport");
+        isTeleporting = false;
 
     }
 }
