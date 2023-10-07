@@ -7,6 +7,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private WorldClock timer;
     [SerializeField] private MonsterManager monster;
     [SerializeField] private int currentLevel = 0;
+    //private bool levelCompleted = false;
     private float currentTime = 0;
     private int candyGiven; 
 
@@ -77,7 +78,6 @@ public class LevelManager : MonoBehaviour
 
     private void LoadLevel(int levelNum)
     {
-        levelCompleted = false;
         //Reset Time 
         Debug.Log("Level " + (levelNum + 1) + " Loaded");
     }
