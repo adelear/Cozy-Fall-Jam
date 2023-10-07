@@ -36295,6 +36295,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: BigHouse1
       objectReference: {fileID: 0}
+    - target: {fileID: 2297730750967187066, guid: 2e4b2aa353512334fb07ca00e930075b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -15.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 3937483575178156563, guid: 2e4b2aa353512334fb07ca00e930075b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -15.98
+      objectReference: {fileID: 0}
+    - target: {fileID: 5072475116988606115, guid: 2e4b2aa353512334fb07ca00e930075b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -15.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 6599223580121316415, guid: 2e4b2aa353512334fb07ca00e930075b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7098587584154059033, guid: 2e4b2aa353512334fb07ca00e930075b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -159.61
