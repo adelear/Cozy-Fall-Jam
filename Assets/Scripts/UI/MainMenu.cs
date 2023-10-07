@@ -67,6 +67,6 @@ public class MainMenu : MonoBehaviour
     private IEnumerator WaitOneSecond()
     {
         yield return new WaitForSeconds(0.5f);
-        SceneManager.LoadScene("WhiteBoxLevel");  
+        SceneManager.LoadScene("Level 1");  
     }
 }
