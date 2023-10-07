@@ -186,13 +186,15 @@ MonoBehaviour:
   teleRadius: 50
   teleDelay: 2
   teleDuration: 1
-  teleRiseDuration: 1.25
+  teleRiseDuration: 0.75
+  teleSinkDuration: 0.75
   teleMoveSpeed: 20
-  teleMoveShakeX: 20
-  teleMoveShakeY: 20
+  teleMoveShakeX: 50
+  teleMoveShakeY: 50
+  canTele: 1
   teleMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 128
   isTeleporting: 0
 --- !u!54 &6797598355149948664
 Rigidbody:
