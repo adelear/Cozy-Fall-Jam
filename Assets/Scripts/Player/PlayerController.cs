@@ -105,6 +105,11 @@ public class PlayerController : MonoBehaviour
         return currentCandy;
     }
 
+    public float GetCandyRatio()
+    {
+        return (float)currentCandy / (float)maxCandy;
+    }
+
     public Vector2 GetInputVector()
     {
         return inputVector;
