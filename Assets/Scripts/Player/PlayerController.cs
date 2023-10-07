@@ -9,8 +9,8 @@ public class PlayerController : MonoBehaviour
 
     [Header("Components")]
     [SerializeField] private float moveSpeed = 5;
-    [SerializeField] private float currentCandy = 0;
-    [SerializeField] private float maxCandy = 100;
+    [SerializeField] private int currentCandy = 0;
+    [SerializeField] private int maxCandy = 100;
     [SerializeField] private AnimationCurve CandyToSpeedCurve;
 
     [SerializeField] private Animator anim;
@@ -68,7 +68,7 @@ public class PlayerController : MonoBehaviour
         OnPlayerCandyChanged?.Invoke(this);
     }
 
-    public float GetCurrentCandy()
+    public int GetCurrentCandy()
     {
         return currentCandy;
     }

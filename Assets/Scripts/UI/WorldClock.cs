@@ -8,9 +8,6 @@ public class WorldClock : MonoBehaviour
     [SerializeField] private Image clockFill;
     [SerializeField] private RectTransform clockHandle;
     [SerializeField] private float maxTime;
-
-
-
     private float currentTime;
 
     private void Update()
@@ -27,4 +24,14 @@ public class WorldClock : MonoBehaviour
             }
         }
     }    
+
+    public float GetMaxTime()
+    {
+        return maxTime; 
+    }
+
+    public float GetCurrentTime()
+    {
+        return currentTime; 
+    }
 }
