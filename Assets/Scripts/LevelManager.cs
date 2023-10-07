@@ -39,7 +39,7 @@ public class LevelManager : MonoBehaviour
         
         if (timer == null) Debug.Log("Add WorldClock to Level Manager Script!");
         if (monster == null) Debug.Log("Add MonsterManager to Level Manager Script!");
-        GameManager.Instance.SwitchState(Gamestate.GAME); 
+        GameManager.Instance.SwitchState(GameState.GAME);  
         string activeSceneName = SceneManager.GetActiveScene().name;
         
         if (activeSceneName.StartsWith("Level "))
