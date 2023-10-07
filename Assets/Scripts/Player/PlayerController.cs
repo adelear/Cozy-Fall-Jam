@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float teleDelay = 2.75f;
     [SerializeField] private float teleDuration = 1.0f;
     [SerializeField] private float teleRiseDuration = 1.0f;
+    [SerializeField] private float teleSinkDuration = 1.0f;
     [SerializeField] private float teleMoveSpeed = 5.0f;
     [SerializeField] private float teleMoveShakeX = 5.0f;
     [SerializeField] private float teleMoveShakeY = 5.0f;
@@ -120,33 +121,31 @@ public class PlayerController : MonoBehaviour
     {
         isTeleporting = true;
 
-        float tempDuration = teleDuration;
+        float tempDuration = 0;
 
-        while (tempDuration >= 0)
+        Vector3 tempPos = transform.position;
+
+        while (tempDuration <= teleSinkDuration)
         {
-            //Debug.Log("manipulating tform...");
+            transform.position = Vector3.Lerp(tempPos, new Vector3(tempPos.x, tempPos.y - 10.0f, tempPos.z), tempDuration / teleSinkDuration);
 
-            transform.Translate((Vector3.down * teleMoveSpeed * Time.deltaTime), Space.World);
-
-
-            //float xNoise = Mathf.PerlinNoise(teleMoveShakeX, teleMoveShakeY);
             Vector3 xAxiNoise = Vector3.right * (UnityEngine.Random.Range(-teleMoveShakeX, teleMoveShakeY) * Time.deltaTime);
 
             transform.Translate(xAxiNoise);
-           // transform.Translate(newPos);
-            
-            
-            tempDuration -= Time.deltaTime;
+          
+            tempDuration += Time.deltaTime;
 
             yield return null;
         }
 
-        rb.position = new Vector3(destination.x, transform.position.y, destination.z);
+        transform.position = new Vector3(destination.x, transform.position.y, destination.z);
 
-        Vector3 tempPos = rb.position;
+        tempPos = transform.position;
 
         //uncomment to make camera move when player enters underground.
         //isTeleporting = false;
+
+        tempDuration = 0;
 
         while (tempDuration <= teleRiseDuration)
         {
