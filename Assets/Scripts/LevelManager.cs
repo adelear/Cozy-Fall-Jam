@@ -7,7 +7,7 @@ public class LevelManager : MonoBehaviour
 
     [SerializeField] private WorldClock timer;
     [SerializeField] private MonsterManager monster;
-    [SerializeField] private int startingLevel = 0;
+    //[SerializeField] private int startingLevel = 0;
 
     private int currentLevel = 0;
     private float currentTime = 0;

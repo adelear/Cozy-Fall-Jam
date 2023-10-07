@@ -16,7 +16,7 @@ public class CandyCounterUI : MonoBehaviour
 
     private bool isWobbling = false;
 
-    private void OnEnable()
+    private void Start()
     {
         PlayerController.OnPlayerCandyChanged += Player_CandyChangedCallback;
     }
@@ -50,8 +50,8 @@ public class CandyCounterUI : MonoBehaviour
         
     }
 
-    private void OnDisable()
+    private void OnDestroy()
     {
-        PlayerController.OnPlayerCandyChanged += Player_CandyChangedCallback;
-    }
+        PlayerController.OnPlayerCandyChanged -= Player_CandyChangedCallback;
+    } 
 }

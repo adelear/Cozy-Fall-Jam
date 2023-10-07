@@ -45,7 +45,7 @@ public class MonsterManager : MonoBehaviour
 
     private void Update()
     {
-        if (playerInCollider)
+        if (playerInCollider && playerHasCandy) 
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
