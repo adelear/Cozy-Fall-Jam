@@ -120,8 +120,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InGamePanel: {fileID: 6417623036185617664}
   PausePanel: {fileID: 4519233900607065386}
-  WinPanel: {fileID: 3882977293917850202}
-  LosePanel: {fileID: 2403928901556133859}
+  WinPanel: {fileID: 2403928901556133859}
+  LosePanel: {fileID: 3882977293917850202}
 --- !u!1 &2403928901556133859
 GameObject:
   m_ObjectHideFlags: 0
