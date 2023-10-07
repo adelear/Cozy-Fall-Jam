@@ -22,8 +22,6 @@ public class LevelManager : MonoBehaviour
 
     public LevelData[] levels;
 
-    private GameManager gameManager;
-
     private void Awake()
     {
         if (Instance == null)
@@ -38,11 +36,12 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
+        
         if (timer == null) Debug.Log("Add WorldClock to Level Manager Script!");
         if (monster == null) Debug.Log("Add MonsterManager to Level Manager Script!");
-
+        GameManager.Instance.SwitchState(Gamestate.GAME); 
         string activeSceneName = SceneManager.GetActiveScene().name;
-
+        
         if (activeSceneName.StartsWith("Level "))
         {
             int levelNumber;
