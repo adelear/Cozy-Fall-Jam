@@ -1428,40 +1428,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: P_Bully
       objectReference: {fileID: 0}
-    - target: {fileID: 4059344086411890714, guid: 74be0e44158a7fd47bf9b950ea0901cc, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 753064188, guid: b0b197e841165de4daa05c872943c7a6, type: 3}
-    - target: {fileID: 4059344086411890714, guid: 74be0e44158a7fd47bf9b950ea0901cc, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-    - target: {fileID: 6566549193894474701, guid: 74be0e44158a7fd47bf9b950ea0901cc, type: 3}
-      propertyPath: m_Constraints
-      value: 116
-      objectReference: {fileID: 0}
     - target: {fileID: 7389681165762063724, guid: 74be0e44158a7fd47bf9b950ea0901cc, type: 3}
       propertyPath: playerRef
       value: 
       objectReference: {fileID: 683513512}
-    - target: {fileID: 7389681165762063724, guid: 74be0e44158a7fd47bf9b950ea0901cc, type: 3}
-      propertyPath: patrolPoints.Array.size
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 7389681165762063724, guid: 74be0e44158a7fd47bf9b950ea0901cc, type: 3}
       propertyPath: patrolPoints.Array.data[0]
       value: 
       objectReference: {fileID: 1738215670}
     - target: {fileID: 7389681165762063724, guid: 74be0e44158a7fd47bf9b950ea0901cc, type: 3}
       propertyPath: patrolPoints.Array.data[1]
-      value: 
-      objectReference: {fileID: 1081044387}
-    - target: {fileID: 7389681165762063724, guid: 74be0e44158a7fd47bf9b950ea0901cc, type: 3}
-      propertyPath: patrolPoints.Array.data[2]
-      value: 
-      objectReference: {fileID: 1081044387}
-    - target: {fileID: 7389681165762063724, guid: 74be0e44158a7fd47bf9b950ea0901cc, type: 3}
-      propertyPath: patrolPoints.Array.data[3]
       value: 
       objectReference: {fileID: 1081044387}
     - target: {fileID: 9072019397574147988, guid: 74be0e44158a7fd47bf9b950ea0901cc, type: 3}
@@ -1507,37 +1483,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1290097396668086063, guid: 74be0e44158a7fd47bf9b950ea0901cc, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 237242013}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 74be0e44158a7fd47bf9b950ea0901cc, type: 3}
---- !u!1 &237242012 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1290097396668086063, guid: 74be0e44158a7fd47bf9b950ea0901cc, type: 3}
-  m_PrefabInstance: {fileID: 237242011}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &237242013
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 237242012}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: dff51effce4d48548948f78e70fc4ac8, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &241492646
 GameObject:
   m_ObjectHideFlags: 0
@@ -3132,25 +3079,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1812152429616175890, guid: 4e3dac80e65c19944a7bf2c25809f759, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 6396684278656423852, guid: 4e3dac80e65c19944a7bf2c25809f759, type: 3}
       propertyPath: m_Name
       value: P_Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 6396684278656423852, guid: 4e3dac80e65c19944a7bf2c25809f759, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 6797598355149948664, guid: 4e3dac80e65c19944a7bf2c25809f759, type: 3}
-      propertyPath: m_Constraints
-      value: 116
-      objectReference: {fileID: 0}
-    - target: {fileID: 6995870939772366816, guid: 4e3dac80e65c19944a7bf2c25809f759, type: 3}
-      propertyPath: m_Layer
-      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8030491532947977004, guid: 4e3dac80e65c19944a7bf2c25809f759, type: 3}
       propertyPath: m_LocalPosition.x
