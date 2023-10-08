@@ -18,4 +18,15 @@ public class Bush : MonoBehaviour
             leaveVFX.Play();
         }
     }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            if (bushEnterFX != null)
+                AudioManager.Instance.PlayAudioSFX(bushEnterFX);
+
+            leaveVFX.Play();
+        }
+    }
 }
