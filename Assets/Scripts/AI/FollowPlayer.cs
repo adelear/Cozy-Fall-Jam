@@ -65,6 +65,7 @@ public class FollowPlayer : MonoBehaviour
 
     private void Update()
     {
+        if (GameManager.Instance.GetCurrentState() != GameState.GAME) return;  
         distanceToPlayer = Vector3.Distance(transform.position, player.position);
         directionToPlayer = (player.position - transform.position).normalized;
        
@@ -72,6 +73,14 @@ public class FollowPlayer : MonoBehaviour
         FieldOfViewCheck();
         Debug.DrawRay(transform.position, directionToPlayer * distanceToPlayer, canSeePlayer ? Color.green : Color.red);
         Debug.Log("EnemyState: " + bullyState);
+        if (rb.velocity == Vector3.zero)
+        {
+            anim.SetBool("Moving", false);
+        }
+        else
+        {
+            anim.SetBool("Moving", true); 
+        }
     }
 
     public void SwitchState(EnemyState newState)
