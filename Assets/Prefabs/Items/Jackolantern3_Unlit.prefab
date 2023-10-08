@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2898256794180846615}
   - component: {fileID: 4322224565585245104}
   - component: {fileID: 8219223639064972723}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Jackolantern3_Unlit
   m_TagString: Untagged
   m_Icon: {fileID: 0}

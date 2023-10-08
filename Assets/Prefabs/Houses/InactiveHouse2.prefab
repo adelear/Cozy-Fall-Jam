@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7894448151926166025}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Fence (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8312280839850637392}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: InactiveHouse2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -82,7 +82,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9209392902339399655}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Fence (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117,7 +117,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6536747697761015259}
   - component: {fileID: 1300319636997052204}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BigHouse1_Lit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -201,7 +201,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7326224622701191099}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Fence (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -238,7 +238,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6071722557814079276}
   - component: {fileID: 5666808116041878620}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Boundary
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -354,6 +354,14 @@ PrefabInstance:
     - target: {fileID: 5430118947514155424, guid: 27b8c2df613848d4d8c8b5b9475baa32, type: 3}
       propertyPath: m_Name
       value: GreenBush (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5430118947514155424, guid: 27b8c2df613848d4d8c8b5b9475baa32, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7797473182221055625, guid: 27b8c2df613848d4d8c8b5b9475baa32, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7868393972827197124, guid: 27b8c2df613848d4d8c8b5b9475baa32, type: 3}
       propertyPath: m_LocalScale.x
@@ -1197,6 +1205,14 @@ PrefabInstance:
     - target: {fileID: 5430118947514155424, guid: 27b8c2df613848d4d8c8b5b9475baa32, type: 3}
       propertyPath: m_Name
       value: GreenBush
+      objectReference: {fileID: 0}
+    - target: {fileID: 5430118947514155424, guid: 27b8c2df613848d4d8c8b5b9475baa32, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7797473182221055625, guid: 27b8c2df613848d4d8c8b5b9475baa32, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7868393972827197124, guid: 27b8c2df613848d4d8c8b5b9475baa32, type: 3}
       propertyPath: m_LocalPosition.x
