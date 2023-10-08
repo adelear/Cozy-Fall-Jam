@@ -61,7 +61,7 @@ public class NPC_Child : MonoBehaviour
 
     private void TryRandomFlip()
     {
-        float randNum = Random.Range(0, 100) / 100;
+        float randNum = Random.Range(0.1f, 100) / 100;
 
         if (randNum < randomFlipChance)
         {
