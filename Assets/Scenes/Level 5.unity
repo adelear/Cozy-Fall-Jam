@@ -1836,15 +1836,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1692931998067047087, guid: 5045685926738e44cb2a7a5a467f15da, type: 3}
       propertyPath: Dialogues.Array.data[0].dialogueText
-      value: Today's haul
+      value: Hey, why do you keep saying Holloween, it's Halloween isn't it?
       objectReference: {fileID: 0}
     - target: {fileID: 1692931998067047087, guid: 5045685926738e44cb2a7a5a467f15da, type: 3}
       propertyPath: Dialogues.Array.data[1].dialogueText
-      value: Bring me more tomorrow.
+      value: "I think I just feel empty inside\u2026.. "
       objectReference: {fileID: 0}
     - target: {fileID: 1692931998067047087, guid: 5045685926738e44cb2a7a5a467f15da, type: 3}
       propertyPath: Dialogues.Array.data[2].dialogueText
-      value: What if I bring enough for the week?
+      value: "\u2026"
       objectReference: {fileID: 0}
     - target: {fileID: 1692931998067047087, guid: 5045685926738e44cb2a7a5a467f15da, type: 3}
       propertyPath: Dialogues.Array.data[3].dialogueText
@@ -1852,23 +1852,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1692931998067047087, guid: 5045685926738e44cb2a7a5a467f15da, type: 3}
       propertyPath: Dialogues.Array.data[4].dialogueText
-      value: "This feels, I don\u2019t know, arbitragiey? "
+      value: "That\u2019s rough\u2026"
       objectReference: {fileID: 0}
     - target: {fileID: 1692931998067047087, guid: 5045685926738e44cb2a7a5a467f15da, type: 3}
       propertyPath: Dialogues.Array.data[5].dialogueText
-      value: Arbitra- FOOL!
+      value: 'BRING MORE TOMORROW. '
       objectReference: {fileID: 0}
     - target: {fileID: 1692931998067047087, guid: 5045685926738e44cb2a7a5a467f15da, type: 3}
       propertyPath: Dialogues.Array.data[6].dialogueText
-      value: 'Do not QUESTION my ways, they are archaic beyond your mortal mind. '
+      value: "I can only bring candy\u2026 "
       objectReference: {fileID: 0}
     - target: {fileID: 1692931998067047087, guid: 5045685926738e44cb2a7a5a467f15da, type: 3}
       propertyPath: Dialogues.Array.data[7].dialogueText
-      value: Really though, why do you keep doing that with your voice?
+      value: "\u2026."
       objectReference: {fileID: 0}
     - target: {fileID: 1692931998067047087, guid: 5045685926738e44cb2a7a5a467f15da, type: 3}
       propertyPath: Dialogues.Array.data[8].dialogueText
-      value: AWAY WITH THEE
+      value: 'BEGONE before I CURSE thee '
+      objectReference: {fileID: 0}
+    - target: {fileID: 1692931998067047087, guid: 5045685926738e44cb2a7a5a467f15da, type: 3}
+      propertyPath: Dialogues.Array.data[9].dialogueText
+      value: "\u2026."
+      objectReference: {fileID: 0}
+    - target: {fileID: 1692931998067047087, guid: 5045685926738e44cb2a7a5a467f15da, type: 3}
+      propertyPath: Dialogues.Array.data[0].ghostDialogue
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1692931998067047087, guid: 5045685926738e44cb2a7a5a467f15da, type: 3}
+      propertyPath: Dialogues.Array.data[1].ghostDialogue
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1692931998067047087, guid: 5045685926738e44cb2a7a5a467f15da, type: 3}
       propertyPath: Dialogues.Array.data[2].ghostDialogue
@@ -1888,11 +1900,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1692931998067047087, guid: 5045685926738e44cb2a7a5a467f15da, type: 3}
       propertyPath: Dialogues.Array.data[6].ghostDialogue
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1692931998067047087, guid: 5045685926738e44cb2a7a5a467f15da, type: 3}
       propertyPath: Dialogues.Array.data[7].ghostDialogue
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1692931998067047087, guid: 5045685926738e44cb2a7a5a467f15da, type: 3}
       propertyPath: Dialogues.Array.data[8].ghostDialogue
