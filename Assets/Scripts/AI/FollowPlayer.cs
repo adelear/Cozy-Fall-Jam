@@ -194,7 +194,6 @@ public class FollowPlayer : MonoBehaviour
                     // Obstacle detected, calculate a new direction to avoid it
                     Vector3 hitNormal = obstacleHit.normal;
                     Vector3 newDirection = Vector3.Cross(hitNormal, Vector3.up);
-                    newDirection.y = 0; 
                     rb.velocity = newDirection.normalized * bullySpeed;
                 }
             }
