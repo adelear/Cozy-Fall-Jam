@@ -22577,6 +22577,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CandyPopupCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 3205007298671973940, guid: 973352bd349232b40a1c1add33558a0d, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7167170705401671452, guid: 973352bd349232b40a1c1add33558a0d, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -23011,6 +23015,10 @@ PrefabInstance:
       propertyPath: candyPopup
       value: 
       objectReference: {fileID: 1113425492}
+    - target: {fileID: 4687463618504139600, guid: 5b4cb3c55ecd6224bae145710ad0af1a, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9110181869940995194, guid: 5b4cb3c55ecd6224bae145710ad0af1a, type: 3}
       propertyPath: m_Name
       value: WorldPopupCanvas
