@@ -2038,6 +2038,10 @@ PrefabInstance:
       propertyPath: Dialogues.Array.data[8].ghostDialogue
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1706592730863889065, guid: 5045685926738e44cb2a7a5a467f15da, type: 3}
+      propertyPath: hangTime
+      value: 0.8
+      objectReference: {fileID: 0}
     - target: {fileID: 8037999225228442433, guid: 5045685926738e44cb2a7a5a467f15da, type: 3}
       propertyPath: m_sharedMaterial
       value: 
