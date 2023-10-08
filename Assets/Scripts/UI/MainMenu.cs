@@ -61,7 +61,7 @@ public class MainMenu : MonoBehaviour
     private void OnPlayBtnClicked()
     {
         //menuAnim.PlayAnimation();
-        StartCoroutine(WaitOneSecond());
+        //StartCoroutine(WaitOneSecond());
     }
 
     private IEnumerator WaitOneSecond()
