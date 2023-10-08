@@ -19,7 +19,7 @@ public class DoorInteraction : MonoBehaviour
     [SerializeField] private AudioClip candyGiveClip;
 
     [SerializeField] private Transform worldTextPos;
-
+    [SerializeField] private GameObject popup;
 
     // Start is called before the first frame update
     void Start()
@@ -77,6 +77,7 @@ public class DoorInteraction : MonoBehaviour
             playerController = other.GetComponent<PlayerController>();
             isOnDoor = true;
             //canAskForCandy = true;
+            popup.SetActive(true);
         }
         if (other.GetComponent<NPC_Child>())
         {
@@ -92,6 +93,7 @@ public class DoorInteraction : MonoBehaviour
         {
             Debug.Log("Player went away");
             isOnDoor = false;
+            popup.SetActive(false);
         }
         if (other.GetComponent<NPC_Child>()) 
         {

@@ -484,6 +484,7 @@ MonoBehaviour:
   canAskForCandy: 0
   candyGiveClip: {fileID: 8300000, guid: e10c8867272615441bcfc032a89ae583, type: 3}
   worldTextPos: {fileID: 56280594518520997}
+  popup: {fileID: 797987741546232981}
 --- !u!1 &7562524601631618729
 GameObject:
   m_ObjectHideFlags: 0
