@@ -11,6 +11,7 @@ public class DoorInteraction : MonoBehaviour
     [SerializeField] public Slider slider; // temporary HUD Slider
     private PlayerController playerController;
     private bool isOnDoor;
+    [SerializeField] private bool npcStealCandy; 
     [SerializeField] private bool canAskForCandy;
     private float lastTimeAskedCandy;
     private float currentTime;
@@ -50,9 +51,17 @@ public class DoorInteraction : MonoBehaviour
                 lastTimeAskedCandy = Time.time;
             }
         }
-         // this is Temporary HUD
-      
-            UpdateDoorHUDTimer(Mathf.Clamp(((currentTime) / askForCandyCooldown), 0, 1));
+
+        if (npcStealCandy && canAskForCandy) 
+        {
+            int candyToGive = Random.Range(minCandyToGive, maxCandyToGive);
+            PopupTextManager.Instance.DisplayPopupAtLocation(worldTextPos.position, candyToGive);
+            canAskForCandy = false;
+            lastTimeAskedCandy = Time.time;
+        } 
+        // this is Temporary HUD
+
+        UpdateDoorHUDTimer(Mathf.Clamp(((currentTime) / askForCandyCooldown), 0, 1));
        
     }
 
@@ -65,7 +74,13 @@ public class DoorInteraction : MonoBehaviour
             isOnDoor = true;
             //canAskForCandy = true;
         }
+        if (other.GetComponent<NPC_Child>())
+        {
+            Debug.Log("NPC at door"); 
+            npcStealCandy = true; 
+        } 
     }
+
 
     private void OnTriggerExit(Collider other)
     {
@@ -73,6 +88,10 @@ public class DoorInteraction : MonoBehaviour
         {
             Debug.Log("Player went away");
             isOnDoor = false;
+        }
+        if (other.GetComponent<NPC_Child>()) 
+        {
+            npcStealCandy = false;  
         }
     }
 

@@ -49,7 +49,7 @@ public class LevelManager : MonoBehaviour
             if (int.TryParse(activeSceneName.Substring("Level ".Length), out levelNumber))
             {
                 currentLevel = levelNumber - 1; 
-                Debug.Log("Current Level: " + currentLevel);
+                //Debug.Log("Current Level: " + currentLevel);
             }
         }
         LevelData currentLevelData = levels[currentLevel];
@@ -128,7 +128,7 @@ public class LevelManager : MonoBehaviour
             if (int.TryParse(activeSceneName.Substring("Level ".Length), out levelNumber))
             {
                 currentLevel = levelNumber - 1;
-                Debug.Log("Current Level: " + currentLevel);
+                //Debug.Log("Current Level: " + currentLevel);
             }
         }
         return currentLevel; 
