@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private AudioClip[] walkingSounds;
     [SerializeField] private AudioSource walkingSource;
+    [SerializeField] private AudioClip getCandy;
 
     [Header("PlayerMechanics")]
     [SerializeField] private int teleRadius = 10;
@@ -106,6 +107,7 @@ public class PlayerController : MonoBehaviour
 
     public void AddCandy(int amount)
     {
+        AudioManager.Instance.PlayAudioSFX(getCandy);  
         currentCandy += amount;
         currentCandy = Mathf.Clamp(currentCandy, 0, maxCandy);
         OnPlayerCandyChanged?.Invoke(this);

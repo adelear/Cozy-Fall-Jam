@@ -189,6 +189,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: a6f211d579b842d4d8a7469bd9e8ec86, type: 3}
   - {fileID: 8300000, guid: d8f2dacfcd0cc2f42afdce96c32195a3, type: 3}
   walkingSource: {fileID: 6572542855812631014}
+  getCandy: {fileID: 8300000, guid: a0ba0a4cc174c4745bf1100a4f6c541c, type: 3}
   teleRadius: 50
   teleDelay: 2
   teleDuration: 1

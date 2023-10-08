@@ -6,6 +6,7 @@ public class MonsterManager : MonoBehaviour
 {
     [SerializeField] private int monsterTreats = 0;
     [SerializeField] private PlayerController playerController;
+    [SerializeField] private AudioClip giveCandy;
     private bool playerInCollider;
     private bool playerHasCandy; 
 
@@ -50,6 +51,7 @@ public class MonsterManager : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 Debug.Log("Feeding the monster!");
+                AudioManager.Instance.PlayAudioSFX(giveCandy); 
                 int treatsGiven = playerController.GetCurrentCandy();
                 monsterTreats += treatsGiven;
                 playerController.LoseCandy(treatsGiven);
