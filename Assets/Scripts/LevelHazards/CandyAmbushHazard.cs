@@ -28,6 +28,8 @@ public class CandyAmbushHazard : LevelHazardBase
         {
             timeAtHit = Time.time;
             SpawnBullysInRadius();
+
+            StartCoroutine(CooldownLifetime());
         }
     }
 
@@ -50,8 +52,37 @@ public class CandyAmbushHazard : LevelHazardBase
 
             Vector3 newPos = Random.insideUnitSphere * spawnRadius;
 
-            tempBully.transform.position = new Vector3(newPos.x, groundPos, newPos.z);
+            tempBully.transform.position += new Vector3(newPos.x, 0, newPos.z);
+
+            FollowPlayer bully = tempBully.GetComponent<FollowPlayer>();
+
+            bully.SetPatrolRotues(GeneratePatrolRoute());
+
         }
+
+         
+    }
+    IEnumerator CooldownLifetime()
+    {
+        SpriteRenderer tempSprite = transform.GetComponent<SpriteRenderer>();
+
+        if (tempSprite) tempSprite.color = new Color(tempSprite.color.r, tempSprite.color.g, tempSprite.color.b, 0);
+
+        yield return new WaitForSeconds(coolDown);
+
+        if (tempSprite) tempSprite.color = new Color(tempSprite.color.r, tempSprite.color.g, tempSprite.color.b, 1);
+    }
+
+    private List<Transform> GeneratePatrolRoute()
+    {
+        List<Transform> newRoute = new List<Transform>(4);
+
+        for (int i =0; i < transform.childCount; i++)
+        {
+            newRoute.Add(transform.GetChild(0));
+        }
+
+        return newRoute;
     }
 
 }

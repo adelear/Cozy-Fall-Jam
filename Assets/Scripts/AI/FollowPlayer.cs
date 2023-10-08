@@ -45,6 +45,8 @@ public class FollowPlayer : MonoBehaviour
 
     private void Start()
     {
+        if (!playerRef) playerRef = GameObject.FindGameObjectWithTag("Player");
+
         if (playerRef)
         {
             player = playerRef.transform;
@@ -283,6 +285,12 @@ public class FollowPlayer : MonoBehaviour
         {
             spriteRenderer.flipX = false;
         }
+    }
+
+
+    public void SetPatrolRotues(List<Transform> patrolNodes)
+    {
+        patrolPoints = patrolNodes.ToArray();
     }
 
     public enum EnemyState
