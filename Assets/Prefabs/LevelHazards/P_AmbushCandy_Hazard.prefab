@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 3726316901187864724}
   - component: {fileID: 2585682727548351041}
   - component: {fileID: 4187012631719329009}
-  - component: {fileID: 3846500013800725621}
+  - component: {fileID: 4204866931190216308}
   m_Layer: 0
-  m_Name: P_Candy_Hazard
+  m_Name: P_AmbushCandy_Hazard
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -97,7 +97,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 758326a9b8057c6429270c051e8b36ca, type: 3}
-  m_Color: {r: 0.858031, g: 1, b: 0.4198113, a: 1}
+  m_Color: {r: 1, g: 0.48065752, b: 0.41960788, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -107,7 +107,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3846500013800725621
+--- !u!114 &4204866931190216308
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -116,11 +116,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 510421481289880523}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bef8d134c0e1e864c84f17a4f8df7416, type: 3}
+  m_Script: {fileID: 11500000, guid: 489122beeae748c44aff5f4ed1bf75e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  candyCost: 5
-  coolDown: 30
+  candyCost: -3
+  coolDown: 60
   timeAtHit: 0
-  isGoodHazard: 0
-  sprite: {fileID: 0}
+  spawnRadius: 15
+  spawnCount: 3
+  groundPos: 4
+  bullyGameObject: {fileID: 1290097396668086063, guid: 74be0e44158a7fd47bf9b950ea0901cc, type: 3}

@@ -165,7 +165,7 @@ public class PlayerController : MonoBehaviour
 
         //uncomment to make camera move when player enters underground.
         //isTeleporting = false;
-
+        destination.y = 4.23f; //the y height of player during runtime
         tempDuration = 0;
 
         while (tempDuration <= teleRiseDuration)

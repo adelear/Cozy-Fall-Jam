@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1500160874231492875}
   - component: {fileID: 4192371818947354214}
   - component: {fileID: 5195256532423485159}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: OrangeBush
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -173,6 +173,10 @@ PrefabInstance:
     - target: {fileID: 2356142468263791308, guid: 906e060d2ca6d4541871d9dad342f131, type: 3}
       propertyPath: m_Name
       value: VFX_BushEnter
+      objectReference: {fileID: 0}
+    - target: {fileID: 2356142468263791308, guid: 906e060d2ca6d4541871d9dad342f131, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

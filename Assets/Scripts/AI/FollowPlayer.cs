@@ -115,9 +115,9 @@ public class FollowPlayer : MonoBehaviour
             {
                 RaycastHit hit;
 
-                LayerMask layerMask = (bullyState == EnemyState.CHASE) ? default : obstructionLayerMask;
+                //LayerMask layerMask = (bullyState == EnemyState.CHASE) ? default : obstructionLayerMask;
 
-                if (distanceToPlayer <= maxDistance && !Physics.Raycast(transform.position, directionToPlayer, out hit, distanceToPlayer, layerMask))
+                if (distanceToPlayer <= maxDistance && !Physics.Raycast(transform.position, directionToPlayer, out hit, distanceToPlayer, obstructionLayerMask))
                 {
                     canSeePlayer = true;
                 }
