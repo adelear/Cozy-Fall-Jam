@@ -25,7 +25,7 @@ public class CandyCounterUI : MonoBehaviour
 
         var data = LevelManager.Instance.GetCurrentLevelData();
         int remaining = data.requiredTreats - LevelManager.Instance.GetCandyGiven();
-        monsterCandyText.text = $"Remaining Candy: {remaining}";
+        monsterCandyText.text = $"{LevelManager.Instance.GetCandyGiven()} / {data.requiredTreats} Candy Given";
 
         candyMonsterFill.fillAmount = 0;
         candyPlayerFill.fillAmount = 0;
@@ -39,7 +39,7 @@ public class CandyCounterUI : MonoBehaviour
         candyPlayerFill.fillAmount = player.GetCandyRatio();
         candyMonsterFill.fillAmount = ratio;
 
-
+        monsterCandyText.text = $"{LevelManager.Instance.GetCandyGiven()} / {data.requiredTreats} Candy Given";
         //monsterCandyText.text = $"Remaining Candy: {remaining}";
 
         //candyText.text = player.GetCurrentCandy().ToString();
