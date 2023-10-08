@@ -95,6 +95,18 @@ public class PopupTextManager : MonoBehaviour
         }
         StartCoroutine(DisplayPopup());
     }
+
+    public void DisplayCandyPopupAtLocation(Vector3 worldPos, int candyValue)
+    {
+        if (candyPopup)
+        {
+            candyPopup.gameObject.SetActive(true);
+            candyPopup.transform.position = worldPos;
+            candyPopup.DisplayPopup(candyValue);
+
+        }
+    }
+
     IEnumerator DisplayPopup()
     {
         SetPopupBackgroundOpacity(popupBckgDefOpacity);

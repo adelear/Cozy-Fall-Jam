@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4187012631719329009}
   - component: {fileID: 3846500013800725621}
   m_Layer: 0
-  m_Name: P_Candy_Hazard
+  m_Name: P_GoodCandy_Hazard
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -97,7 +97,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 758326a9b8057c6429270c051e8b36ca, type: 3}
-  m_Color: {r: 0.858031, g: 1, b: 0.4198113, a: 1}
+  m_Color: {r: 0.41960788, g: 1, b: 0.4654327, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -119,8 +119,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bef8d134c0e1e864c84f17a4f8df7416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  candyCost: 5
+  candyCost: 8
   coolDown: 30
   timeAtHit: 0
-  isGoodHazard: 0
+  isGoodHazard: 1
   sprite: {fileID: 0}
