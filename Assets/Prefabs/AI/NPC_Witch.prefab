@@ -365,7 +365,7 @@ GameObject:
   m_Component:
   - component: {fileID: 440100498129823411}
   m_Layer: 0
-  m_Name: NPC 3
+  m_Name: NPC_Witch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

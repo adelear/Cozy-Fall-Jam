@@ -54,8 +54,8 @@ public class DoorInteraction : MonoBehaviour
 
         if (npcStealCandy && canAskForCandy) 
         {
-            int candyToGive = Random.Range(minCandyToGive, maxCandyToGive);
-            PopupTextManager.Instance.DisplayPopupAtLocation(worldTextPos.position, candyToGive);
+            //int candyToGive = Random.Range(minCandyToGive, maxCandyToGive);
+            //PopupTextManager.Instance.DisplayPopupAtLocation(worldTextPos.position, candyToGive);
             canAskForCandy = false;
             lastTimeAskedCandy = Time.time;
         } 

@@ -36391,7 +36391,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1745739708261107837, guid: f1374f611bb574c4e82012cff385f175, type: 3}
       propertyPath: m_Name
-      value: NPC 1
+      value: NPC_Ghost
       objectReference: {fileID: 0}
     - target: {fileID: 8337922283069300004, guid: f1374f611bb574c4e82012cff385f175, type: 3}
       propertyPath: m_LocalPosition.x
@@ -37109,7 +37109,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3687783170193307376, guid: fd3b58077d5dc6e4fa6bfbd427ba46cc, type: 3}
       propertyPath: m_Name
-      value: NPC 2
+      value: NPC_Cat
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -37434,7 +37434,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4372944560308081769, guid: 7fca93c08aff73e40bd3fd12dce6bf8d, type: 3}
       propertyPath: m_Name
-      value: NPC 3
+      value: NPC_Witch
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
