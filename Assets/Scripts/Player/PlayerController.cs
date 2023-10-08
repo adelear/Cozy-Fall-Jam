@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using Random = UnityEngine.Random;
 public class PlayerController : MonoBehaviour
 {
     [Header("Components")]
@@ -15,6 +16,8 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private Animator anim;
     [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private AudioClip[] walkingSounds;
+    [SerializeField] private AudioSource walkingSource;
 
     [Header("PlayerMechanics")]
     [SerializeField] private int teleRadius = 10;
@@ -49,6 +52,19 @@ public class PlayerController : MonoBehaviour
     {
         inputVector.x = Input.GetAxis("Horizontal");
         inputVector.y = Input.GetAxis("Vertical");
+
+        bool isMoving = inputVector.magnitude > 0;
+        if (isMoving && walkingSource.isPlaying == false)
+        {
+            int rand = Random.Range(0, walkingSounds.Length);
+            walkingSource.clip = walkingSounds[rand];
+            walkingSource.Play();
+        }
+            
+
+        if (!isMoving && walkingSource.isPlaying == true)
+            walkingSource.Stop();
+
         anim.SetFloat("hValue", inputVector.x); //Walking left and right
         anim.SetFloat("vValue", inputVector.y); //Walking forward
 

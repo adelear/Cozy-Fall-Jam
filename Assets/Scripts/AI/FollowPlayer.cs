@@ -7,6 +7,7 @@ public class FollowPlayer : MonoBehaviour
     [Header("Components")]
     [SerializeField] private GameObject playerRef;
     [SerializeField] private Transform[] patrolPoints;
+    [SerializeField] private SpriteRenderer spriteRenderer;
 
     [Header("Settings")]
     [SerializeField] private float bullySpeed = 4f;
@@ -47,7 +48,8 @@ public class FollowPlayer : MonoBehaviour
             playerController = playerRef.GetComponent<PlayerController>();
         }
 
-        rb = GetComponent<Rigidbody>();
+        if (spriteRenderer == null) spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        if (rb == null) rb = GetComponent<Rigidbody>();
         canSeePlayer = false;
 
         SwitchState(EnemyState.PATROL);
@@ -141,6 +143,11 @@ public class FollowPlayer : MonoBehaviour
     {
         if (canSeePlayer && shouldFollowPlayer)
         {
+            // Movement direction
+            Vector3 movementDirection = directionToPlayer * bullySpeed;
+            // Flip the sprite renderer based on the movement direction
+            FlipSprite(movementDirection);
+
             // Check if the player is within the field of view
             if (Vector3.Angle(transform.forward, directionToPlayer) < angle / 2)
             {
@@ -148,7 +155,7 @@ public class FollowPlayer : MonoBehaviour
                 if (!Physics.SphereCast(transform.position, obstacleOvoidanceRadius, directionToPlayer, out obstacleHit, obstacleOvoidanceDistance, obstacleToAvoid))
                 {
                     // Continue chasing the player as long as they are within the field of view
-                    rb.velocity = directionToPlayer * bullySpeed;
+                    rb.velocity = movementDirection;
 
                     // Bully Gets candy from player
                     if (distanceToPlayer <= rangeOfAttack)
@@ -218,10 +225,14 @@ public class FollowPlayer : MonoBehaviour
                 currentPatrolPointIndex++;
                 currentPatrolPointIndex %= patrolPoints.Length;
                 SwitchState(EnemyState.IDLE);
+
+                // Reset the SpriteRenderer flip to the default state when patrolling
+                spriteRenderer.flipX = false;
             }
             else
             {
                 rb.velocity = targetDirection * bullySpeed;
+                FlipSprite(targetDirection);
             }
         }
         if (canSeePlayer) 
@@ -244,6 +255,19 @@ public class FollowPlayer : MonoBehaviour
         }
         else
             SwitchState(EnemyState.PATROL);
+    }
+
+    // Flip the SpriteRenderer based on the movement direction
+    private void FlipSprite(Vector3 direction)
+    {
+        if (direction.x < 0)
+        {
+            spriteRenderer.flipX = true;
+        }
+        else if (direction.x > 0)
+        {
+            spriteRenderer.flipX = false;
+        }
     }
 
     public enum EnemyState
