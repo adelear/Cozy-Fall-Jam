@@ -31,7 +31,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float teleMoveShakeY = 5.0f;
     [SerializeField] private bool canTele = true;
     [SerializeField] LayerMask teleMask;
-    
+    [SerializeField] private ParticleSystem candyVFX; 
+
     private float timeAtTele = 0;
     public bool isTeleporting = false; //sorry its 3:07 am
 
@@ -115,6 +116,7 @@ public class PlayerController : MonoBehaviour
 
     public void LoseCandy(int amount)
     {
+        candyVFX.Play(); 
         currentCandy -= amount;
         currentCandy = Mathf.Clamp(currentCandy, 0, maxCandy);
         OnPlayerCandyChanged?.Invoke(this);

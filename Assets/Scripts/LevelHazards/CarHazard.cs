@@ -11,6 +11,9 @@ public class CarHazard : LevelHazardBase
     [SerializeField] Transform StartPos;
     [SerializeField] Transform endPos;
 
+    [SerializeField] AudioClip candyDrop;
+    [SerializeField] AudioClip carHit;
+
     private float moveDuration;
     private float maxMoveDuration;
 
@@ -47,7 +50,7 @@ public class CarHazard : LevelHazardBase
 
     public override void OnPlayerHit(PlayerController player)
     {
-
+        AudioManager.Instance.PlayAudioSFX(carHit); 
         if (Time.time > timeAtHit + coolDown)
         {
             Debug.Log("hit player - taking candy");
@@ -55,6 +58,7 @@ public class CarHazard : LevelHazardBase
             timeAtHit = Time.time;
 
             player.LoseCandy(candyCost);
+            AudioManager.Instance.PlayAudioSFX(candyDrop); 
         }
     }
 
