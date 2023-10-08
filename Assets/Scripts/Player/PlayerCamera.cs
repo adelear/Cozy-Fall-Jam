@@ -26,21 +26,22 @@ public class PlayerCamera : MonoBehaviour
         
         float zPos = 0;
 
-        Vector3 dirToPlayer = transform.position - followTarget.transform.position;
-        Ray ray = new Ray(followTarget.transform.position, dirToPlayer.normalized);
+        //Vector3 dirToPlayer = transform.position - followTarget.transform.position;
+        //Ray ray = new Ray(followTarget.transform.position, dirToPlayer.normalized);
 
-       
-        if (Physics.Raycast(ray, out RaycastHit hit, distance))
-        {
-            zPos = hit.point.z;
-        }
+        zPos = followTarget.transform.position.z - distance;
 
-        else
-        {
-            //if (followTarget.isTeleporting) return;
+        //if (Physics.Raycast(ray, out RaycastHit hit, distance))
+        //{
+        //    zPos = hit.point.z;
+        //}
 
-            zPos = followTarget.transform.position.z - distance;
-        }
+        //else
+        //{
+        //    //if (followTarget.isTeleporting) return;
+
+            
+        //}
 
         if (followTarget.isTeleporting) return;
 

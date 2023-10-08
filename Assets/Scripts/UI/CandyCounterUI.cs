@@ -26,6 +26,9 @@ public class CandyCounterUI : MonoBehaviour
         var data = LevelManager.Instance.GetCurrentLevelData();
         int remaining = data.requiredTreats - LevelManager.Instance.GetCandyGiven();
         monsterCandyText.text = $"Remaining Candy: {remaining}";
+
+        candyMonsterFill.fillAmount = 0;
+        candyPlayerFill.fillAmount = 0;
     }
 
     private void Player_CandyChangedCallback(PlayerController player)
