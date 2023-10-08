@@ -56,6 +56,11 @@ public class MonsterManager : MonoBehaviour
                 monsterTreats += treatsGiven;
                 LevelManager.Instance.candyGiven = monsterTreats;
                 playerController.LoseCandy(treatsGiven);
+
+                if (monsterTreats >= LevelManager.Instance.GetCurrentLevelData().requiredTreats)
+                {
+                    GameManager.Instance.SwitchState(GameState.WIN);
+                }
             }
         }
     }

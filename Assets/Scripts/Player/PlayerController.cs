@@ -42,12 +42,17 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
-        maxCandy = LevelManager.Instance.GetMaxCarriedTreats(); 
+        
         if (rb == null)
             rb = GetComponent<Rigidbody>();
 
         if (spriteRenderer == null) spriteRenderer = GetComponentInChildren<SpriteRenderer>(); 
         if (anim == null) anim = GetComponentInChildren<Animator>(); 
+    }
+
+    private void Start()
+    {
+        maxCandy = LevelManager.Instance.GetMaxCarriedTreats();
     }
 
     private void Update()

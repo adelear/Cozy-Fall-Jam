@@ -31,11 +31,9 @@ public class LevelManager : MonoBehaviour
         else
         {
             Destroy(gameObject);
+            return;
         }
-    }
 
-    private void Start()
-    {
         if (monster == null) Debug.Log("Add MonsterManager to Level Manager Script!");
         GameManager.Instance.SwitchState(GameState.GAME);
         string activeSceneName = SceneManager.GetActiveScene().name;
@@ -46,11 +44,15 @@ public class LevelManager : MonoBehaviour
             int levelNumber;
             if (int.TryParse(activeSceneName.Substring("Level ".Length), out levelNumber))
             {
-                currentLevel = levelNumber - 1; 
+                currentLevel = levelNumber - 1;
                 //Debug.Log("Current Level: " + currentLevel);
             }
         }
-        LevelData currentLevelData = levels[currentLevel];
+    }
+
+    private void Start()
+    {
+
     } 
 
     private void Update()
