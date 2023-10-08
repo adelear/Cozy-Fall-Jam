@@ -225,6 +225,9 @@ public class FollowPlayer : MonoBehaviour
             Vector3 targetDirection = (patrolPoints[currentPatrolPointIndex].position - transform.position).normalized;
             float distanceToTarget = Vector3.Distance(transform.position, patrolPoints[currentPatrolPointIndex].position);
 
+            // Disable the collider to allow passing through obstacles to return to patrol point (dirty fix to not collide)
+            GetComponent<Collider>().enabled = false;
+
             //  If enemy reached the current patrol point switch to next patrol point
             if (distanceToTarget <= patrolDistThreshhold)
             {
@@ -247,6 +250,8 @@ public class FollowPlayer : MonoBehaviour
         }
         if (canSeePlayer) 
         {
+            // Turn on the collider when following player
+            GetComponent<Collider>().enabled = true;
             if (bullyState != EnemyState.CHASE)
             {
                 SwitchState(EnemyState.CHASE);
