@@ -393,7 +393,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxCandyToGive: 5
   minCandyToGive: 0
-  askForCandyCooldown: 10
+  askForCandyCooldown: 15
   slider: {fileID: 4565374670987221543}
   npcStealCandy: 0
   canAskForCandy: 0
