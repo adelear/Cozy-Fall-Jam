@@ -1743,6 +1743,150 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1692931998067047087, guid: 5045685926738e44cb2a7a5a467f15da, type: 3}
+      propertyPath: Dialogues.Array.size
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1692931998067047087, guid: 5045685926738e44cb2a7a5a467f15da, type: 3}
+      propertyPath: Dialogues.Array.data[2].dialogueText
+      value: "Oh\u2026 #$%!\u2026."
+      objectReference: {fileID: 0}
+    - target: {fileID: 1692931998067047087, guid: 5045685926738e44cb2a7a5a467f15da, type: 3}
+      propertyPath: Dialogues.Array.data[3].dialogueText
+      value: Tomorrow, you will bring more.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1692931998067047087, guid: 5045685926738e44cb2a7a5a467f15da, type: 3}
+      propertyPath: Dialogues.Array.data[4].dialogueText
+      value: Wait? What? Tomorrow?
+      objectReference: {fileID: 0}
+    - target: {fileID: 1692931998067047087, guid: 5045685926738e44cb2a7a5a467f15da, type: 3}
+      propertyPath: Dialogues.Array.data[5].dialogueText
+      value: . . . Yes.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1692931998067047087, guid: 5045685926738e44cb2a7a5a467f15da, type: 3}
+      propertyPath: Dialogues.Array.data[6].dialogueText
+      value: 'Today is Holloween. '
+      objectReference: {fileID: 0}
+    - target: {fileID: 1692931998067047087, guid: 5045685926738e44cb2a7a5a467f15da, type: 3}
+      propertyPath: Dialogues.Array.data[7].dialogueText
+      value: "\u2026"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1692931998067047087, guid: 5045685926738e44cb2a7a5a467f15da, type: 3}
+      propertyPath: Dialogues.Array.data[8].dialogueText
+      value: "\u2026"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1692931998067047087, guid: 5045685926738e44cb2a7a5a467f15da, type: 3}
+      propertyPath: Dialogues.Array.data[9].dialogueText
+      value: "This town\u2026"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1692931998067047087, guid: 5045685926738e44cb2a7a5a467f15da, type: 3}
+      propertyPath: Dialogues.Array.data[10].dialogueText
+      value: Yes.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1692931998067047087, guid: 5045685926738e44cb2a7a5a467f15da, type: 3}
+      propertyPath: Dialogues.Array.data[11].dialogueText
+      value: Celebrates Holloween for a week.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1692931998067047087, guid: 5045685926738e44cb2a7a5a467f15da, type: 3}
+      propertyPath: Dialogues.Array.data[12].dialogueText
+      value: Really?
+      objectReference: {fileID: 0}
+    - target: {fileID: 1692931998067047087, guid: 5045685926738e44cb2a7a5a467f15da, type: 3}
+      propertyPath: Dialogues.Array.data[13].dialogueText
+      value: 'Its a big ordeal, I ordained- wait? What? '
+      objectReference: {fileID: 0}
+    - target: {fileID: 1692931998067047087, guid: 5045685926738e44cb2a7a5a467f15da, type: 3}
+      propertyPath: Dialogues.Array.data[14].dialogueText
+      value: You LIVED HERE!!
+      objectReference: {fileID: 0}
+    - target: {fileID: 1692931998067047087, guid: 5045685926738e44cb2a7a5a467f15da, type: 3}
+      propertyPath: Dialogues.Array.data[15].dialogueText
+      value: "Oh! That\u2019s right. "
+      objectReference: {fileID: 0}
+    - target: {fileID: 1692931998067047087, guid: 5045685926738e44cb2a7a5a467f15da, type: 3}
+      propertyPath: Dialogues.Array.data[16].dialogueText
+      value: ". . . You\u2019re telling me there is still a chance?"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1692931998067047087, guid: 5045685926738e44cb2a7a5a467f15da, type: 3}
+      propertyPath: Dialogues.Array.data[17].dialogueText
+      value: Why have I been twice cursed?
+      objectReference: {fileID: 0}
+    - target: {fileID: 1692931998067047087, guid: 5045685926738e44cb2a7a5a467f15da, type: 3}
+      propertyPath: Dialogues.Array.data[18].dialogueText
+      value: There is still time.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1692931998067047087, guid: 5045685926738e44cb2a7a5a467f15da, type: 3}
+      propertyPath: Dialogues.Array.data[19].dialogueText
+      value: 'Difficult though it may be. '
+      objectReference: {fileID: 0}
+    - target: {fileID: 1692931998067047087, guid: 5045685926738e44cb2a7a5a467f15da, type: 3}
+      propertyPath: Dialogues.Array.data[1].ghostDialogue
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1692931998067047087, guid: 5045685926738e44cb2a7a5a467f15da, type: 3}
+      propertyPath: Dialogues.Array.data[2].ghostDialogue
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1692931998067047087, guid: 5045685926738e44cb2a7a5a467f15da, type: 3}
+      propertyPath: Dialogues.Array.data[3].ghostDialogue
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1692931998067047087, guid: 5045685926738e44cb2a7a5a467f15da, type: 3}
+      propertyPath: Dialogues.Array.data[4].ghostDialogue
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1692931998067047087, guid: 5045685926738e44cb2a7a5a467f15da, type: 3}
+      propertyPath: Dialogues.Array.data[5].ghostDialogue
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1692931998067047087, guid: 5045685926738e44cb2a7a5a467f15da, type: 3}
+      propertyPath: Dialogues.Array.data[6].ghostDialogue
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1692931998067047087, guid: 5045685926738e44cb2a7a5a467f15da, type: 3}
+      propertyPath: Dialogues.Array.data[7].ghostDialogue
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1692931998067047087, guid: 5045685926738e44cb2a7a5a467f15da, type: 3}
+      propertyPath: Dialogues.Array.data[8].ghostDialogue
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1692931998067047087, guid: 5045685926738e44cb2a7a5a467f15da, type: 3}
+      propertyPath: Dialogues.Array.data[9].ghostDialogue
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1692931998067047087, guid: 5045685926738e44cb2a7a5a467f15da, type: 3}
+      propertyPath: Dialogues.Array.data[10].ghostDialogue
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1692931998067047087, guid: 5045685926738e44cb2a7a5a467f15da, type: 3}
+      propertyPath: Dialogues.Array.data[11].ghostDialogue
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1692931998067047087, guid: 5045685926738e44cb2a7a5a467f15da, type: 3}
+      propertyPath: Dialogues.Array.data[12].ghostDialogue
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1692931998067047087, guid: 5045685926738e44cb2a7a5a467f15da, type: 3}
+      propertyPath: Dialogues.Array.data[13].ghostDialogue
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1692931998067047087, guid: 5045685926738e44cb2a7a5a467f15da, type: 3}
+      propertyPath: Dialogues.Array.data[15].ghostDialogue
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1692931998067047087, guid: 5045685926738e44cb2a7a5a467f15da, type: 3}
+      propertyPath: Dialogues.Array.data[16].ghostDialogue
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1692931998067047087, guid: 5045685926738e44cb2a7a5a467f15da, type: 3}
+      propertyPath: Dialogues.Array.data[17].ghostDialogue
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1692931998067047087, guid: 5045685926738e44cb2a7a5a467f15da, type: 3}
+      propertyPath: Dialogues.Array.data[18].ghostDialogue
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
