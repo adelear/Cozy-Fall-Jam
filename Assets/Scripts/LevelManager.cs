@@ -19,6 +19,7 @@ public class LevelManager : MonoBehaviour
     {
         public int requiredTreats;
         public int maxCarriedTreats;
+        public int maxTime; 
     }
 
     public LevelData[] levels;
@@ -69,7 +70,7 @@ public class LevelManager : MonoBehaviour
             }
             else
             {
-                Debug.Log("Game Completed!");
+                SceneTransitionManager.Instance.LoadScene("WinScene"); 
             }
         }
         if (LevelCompleted())
