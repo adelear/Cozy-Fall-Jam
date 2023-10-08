@@ -9,22 +9,19 @@ public class NPC_Child : MonoBehaviour
     [SerializeField] float randomFlipChance = 0.1f;
 
     [SerializeField] int pathIndx = 0;
-    [SerializeField] bool GenerateRandom = false;
+
+    //[SerializeField] bool GenerateRandom = false;
 
 
     public List<Transform> pathNodes = new List<Transform>();
 
     private void Start()
     {
-        Transform temp = GameObject.FindGameObjectWithTag("PatrolRoute").transform;
-
-        for (int i = 0; i < temp.childCount; i++)
+        if (pathNodes.Count > 0)
         {
-            pathNodes.Add(temp.GetChild(i));
+            pathIndx = Random.Range(0, pathNodes.Count);
+            transform.position = pathNodes[pathIndx].position;
         }
-
-        //transform.position = pathNodes[pathIndx].position;
-        SelectRandomNode();
     }
 
     private void Update()
@@ -35,42 +32,32 @@ public class NPC_Child : MonoBehaviour
         moveDir.Normalize();
 
         transform.position = transform.position + (moveDir * moveSpeed) * Time.deltaTime;
-
-        if (GenerateRandom)
-            SelectRandomNode();
-    }
+    } 
 
     private void FlipPath(bool resetIndx)
     {
         if (resetIndx)
             pathIndx = 0;
-        
         pathNodes.Reverse();
-    }
-
-    private void SelectRandomNode()
-    {
-        if (GenerateRandom) GenerateRandom = false;
-
-        pathIndx = Random.Range(0, pathNodes.Count - 1);
-
-        transform.position = pathNodes[pathIndx].position;
+        
     }
 
     private void DistanceCheck()
     {
-        if (Vector3.Distance(transform.position, pathNodes[pathIndx].position) < distThreshold )
+        if (Vector3.Distance(transform.position, pathNodes[pathIndx].position) < distThreshold)
         {
             pathIndx = (pathIndx + 1) % pathNodes.Count;
-            //pathIndx++;
 
-            //TryRandomFlip();
-
-            if (pathIndx >= pathNodes.Count - 1)
-                FlipPath(true);
+            if (pathIndx == 0)
+            {
+                // If you've reached the end of the path, reset the path and flip the order.
+                pathNodes.Reverse();
+                GetComponent<SpriteRenderer>().flipX = !GetComponent<SpriteRenderer>().flipX; 
+                pathIndx = 0;
+            }
         }
+    } 
 
-    }
 
     private void TryRandomFlip()
     {
