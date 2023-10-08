@@ -76,6 +76,7 @@ public class GameHUD : MonoBehaviour
 
     public void OnResumeBtn()
     {
+        Time.timeScale = 1.0f;
         GameManager.Instance.SwitchState(GameState.GAME);
     }
 

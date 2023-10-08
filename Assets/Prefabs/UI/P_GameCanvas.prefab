@@ -383,7 +383,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8202619768785151922
 RectTransform:
   m_ObjectHideFlags: 0
@@ -400,8 +400,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 270.15, y: -35.7139}
+  m_SizeDelta: {x: 540.28, y: 71.4278}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6513620666065703053
 CanvasRenderer:
@@ -433,7 +433,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 0
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f00ea2bad99808749bd81939c5badded, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1797,7 +1797,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   candyText: {fileID: 8037999225228442433}
-  monsterCandyText: {fileID: 5980331984004196937}
+  monsterCandyText: {fileID: 8037999225228442433}
   candyPlayerFill: {fileID: 4196855280908387961}
   candyMonsterFill: {fileID: 5441688629888572417}
   candyImage: {fileID: 3729525355116886337}
