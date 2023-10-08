@@ -49,21 +49,21 @@ MonoBehaviour:
   - requiredTreats: 10
     maxCarriedTreats: 20
     maxTime: 60
-  - requiredTreats: 20
+  - requiredTreats: 15
     maxCarriedTreats: 20
     maxTime: 120
-  - requiredTreats: 30
+  - requiredTreats: 20
     maxCarriedTreats: 20
     maxTime: 180
-  - requiredTreats: 40
+  - requiredTreats: 25
     maxCarriedTreats: 20
     maxTime: 240
-  - requiredTreats: 50
+  - requiredTreats: 30
     maxCarriedTreats: 20
     maxTime: 300
-  - requiredTreats: 60
+  - requiredTreats: 45
     maxCarriedTreats: 20
     maxTime: 360
-  - requiredTreats: 80
+  - requiredTreats: 50
     maxCarriedTreats: 20
     maxTime: 420
