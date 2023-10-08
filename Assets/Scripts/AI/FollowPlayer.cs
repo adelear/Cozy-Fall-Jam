@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class FollowPlayer : MonoBehaviour
 {
@@ -21,13 +22,15 @@ public class FollowPlayer : MonoBehaviour
     [SerializeField] private float waitAtPatrolPoint = 3f;
     [SerializeField] private float knockbackForce = 50f;
     [SerializeField] private float obstacleOvoidanceRadius = 1f;
-    [SerializeField] private float obstacleOvoidanceDistance = 2f;
-
+    [SerializeField] private float obstacleOvoidanceDistance = 2f; 
+    [SerializeField] private AudioClip takeCandy; 
+     
     [Header("Layers Mask")]
     [SerializeField] private LayerMask playerLayerMask;
     [SerializeField] private LayerMask obstructionLayerMask;
     [SerializeField] private LayerMask obstacleToAvoid;
 
+    private Animator anim; 
     private int currentPatrolPointIndex;
     private bool canSeePlayer;
     private bool shouldFollowPlayer = true;
@@ -49,6 +52,7 @@ public class FollowPlayer : MonoBehaviour
         }
 
         if (spriteRenderer == null) spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        if (anim == null) anim = GetComponent<Animator>();  
         if (rb == null) rb = GetComponent<Rigidbody>();
         canSeePlayer = false;
 
@@ -130,12 +134,16 @@ public class FollowPlayer : MonoBehaviour
     // Idle State
     private void Idle()
     {
-        if (canSeePlayer) 
+        if (canSeePlayer)
         {
             SwitchState(EnemyState.CHASE);
+            anim.SetBool("Moving", true);
         }
-        else
+        else 
+        {
             rb.velocity = Vector3.zero;
+            anim.SetBool("Moving", false);
+        }
     }
 
     // Chase State
@@ -145,6 +153,7 @@ public class FollowPlayer : MonoBehaviour
         {
             // Movement direction
             Vector3 movementDirection = directionToPlayer * bullySpeed;
+            movementDirection.y = 0;  
             // Flip the sprite renderer based on the movement direction
             FlipSprite(movementDirection);
 
@@ -155,7 +164,7 @@ public class FollowPlayer : MonoBehaviour
                 if (!Physics.SphereCast(transform.position, obstacleOvoidanceRadius, directionToPlayer, out obstacleHit, obstacleOvoidanceDistance, obstacleToAvoid))
                 {
                     // Continue chasing the player as long as they are within the field of view
-                    rb.velocity = movementDirection;
+                    rb.velocity = movementDirection; 
 
                     // Bully Gets candy from player
                     if (distanceToPlayer <= rangeOfAttack)
@@ -165,7 +174,8 @@ public class FollowPlayer : MonoBehaviour
                             int candyToLoose = Random.Range(1, maxCandyToLoose);
                             // Player loose canddy
                             playerController.LoseCandy(candyToLoose);
-
+                            AudioManager.Instance.PlayAudioSFX(takeCandy); 
+                            anim.SetTrigger("Eating");
                             // Player knockback
                             Rigidbody playerRigidbody = playerController.GetComponent<Rigidbody>();
                             Vector3 knockbackDirection = (playerController.transform.position - transform.position).normalized;
@@ -210,8 +220,9 @@ public class FollowPlayer : MonoBehaviour
     private void Patrol()
     {
         if (!canSeePlayer) 
-        { 
+        {
             // Direction and distance to the current patrol point
+            anim.SetBool("Moving", true); 
             Vector3 targetDirection = (patrolPoints[currentPatrolPointIndex].position - transform.position).normalized;
             float distanceToTarget = Vector3.Distance(transform.position, patrolPoints[currentPatrolPointIndex].position);
 
