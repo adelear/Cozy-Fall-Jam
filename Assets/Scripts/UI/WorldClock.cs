@@ -36,7 +36,8 @@ public class WorldClock : MonoBehaviour
 
     public void SetMaxTime(int t)
     {
-        maxTime = t;  
+        maxTime = t;
+        maxTime = Mathf.Max(0.01f, maxTime);
     }
 
     public float GetCurrentTime()
