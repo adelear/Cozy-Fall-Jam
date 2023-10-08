@@ -394,6 +394,7 @@ MonoBehaviour:
   maxCandyToGive: 5
   minCandyToGive: 0
   askForCandyCooldown: 10
+  popupTextManager: {fileID: 0}
   slider: {fileID: 4565374670987221543}
   canAskForCandy: 0
   worldTextPos: {fileID: 56280594518520997}

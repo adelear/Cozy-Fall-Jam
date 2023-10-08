@@ -43,9 +43,8 @@ public class DoorInteraction : MonoBehaviour
                 playerController.AddCandy(candyToGive);
 
                 //PopupTextManager ptm = GameObject.FindGameObjectWithTag("PopupText").GetComponent<PopupTextManager>();
-                GameObject temp = GameObject.FindGameObjectWithTag("PopupText");
-                PopupTextManager ptm = temp.GetComponent<PopupTextManager>();
-                if (ptm) ptm.DisplayPopupAtLocation(worldTextPos.position, candyToGive);
+ 
+                PopupTextManager.Instance.DisplayPopupAtLocation(worldTextPos.position, candyToGive);   
 
                 canAskForCandy = false;
                 lastTimeAskedCandy = Time.time;
