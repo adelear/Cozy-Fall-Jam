@@ -10,7 +10,7 @@ public class LevelManager : MonoBehaviour
 
     private int currentLevel;
     private float currentTime = 0;
-    private int candyGiven;
+    public int candyGiven;
 
     [System.Serializable]
     public class LevelData
@@ -57,7 +57,7 @@ public class LevelManager : MonoBehaviour
     {
         if (GameManager.Instance.GetCurrentState() != GameState.GAME) return;
 
-        candyGiven = monster.GetMonsterTreats();
+        //candyGiven = monster.GetMonsterTreats();
 
         if (PlayerWinsLevel())
         {
