@@ -39,6 +39,8 @@ public class CandyHazard : LevelHazardBase
 
             int candyValue = UnityEngine.Random.Range(2, candyCost);
 
+            timeAtHit = Time.time;
+
             if (isGoodHazard)
             {
                 GameObject temp = GameObject.FindGameObjectWithTag("PopupText");
@@ -64,7 +66,7 @@ public class CandyHazard : LevelHazardBase
 
         sprite.color = new Color(sprite.color.r, sprite.color.g, sprite.color.b, 1);
 
-        gameObject.SetActive(true);
+        //gameObject.SetActive(true);
     }
 
     private void OnTriggerEnter(Collider c)

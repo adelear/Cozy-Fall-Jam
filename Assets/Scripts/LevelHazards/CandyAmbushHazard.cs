@@ -5,8 +5,8 @@ using UnityEngine;
 public class CandyAmbushHazard : LevelHazardBase
 {
     [SerializeField] float spawnRadius;
-    [SerializeField] float spawnCount;
     [SerializeField] float groundPos;
+    [SerializeField] int spawnCount;
     
     [SerializeField] GameObject bullyGameObject;
 
@@ -46,11 +46,17 @@ public class CandyAmbushHazard : LevelHazardBase
     {
         if (!bullyGameObject) return;
 
-        for (int i = 0; i < spawnCount; i++)
+        int newSpawnCount = UnityEngine.Random.Range(1, spawnCount + 1);
+
+        for (int i = 0; i < newSpawnCount; i++)
         {
             GameObject tempBully = Instantiate(bullyGameObject, transform.position, Quaternion.identity);
 
             Vector3 newPos = Random.insideUnitSphere * spawnRadius;
+
+            //if we spawn too close
+            while (Vector3.Distance(tempBully.transform.position += new Vector3(newPos.x, 0, newPos.z), transform.position) < 4)
+                newPos = Random.insideUnitSphere * spawnRadius;
 
             tempBully.transform.position += new Vector3(newPos.x, 0, newPos.z);
 
