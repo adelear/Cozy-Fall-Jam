@@ -16,10 +16,10 @@ public class CarHazard : LevelHazardBase
 
     private Rigidbody rb;
 
-
     private void Start()
     {
         OnHazardSpawn();
+        transform.position = StartPos.position; 
     }
 
     private void FixedUpdate()
@@ -33,13 +33,14 @@ public class CarHazard : LevelHazardBase
             Debug.Log("at final pos - swapping move tForms");
             Transform tempTform = StartPos;
             StartPos = endPos;
+            GetComponent<SpriteRenderer>().flipX = !GetComponent<SpriteRenderer>().flipX;  
             endPos = tempTform;
             moveDuration = 0;
         }
 
         Vector3 NewPos = Vector3.Lerp(StartPos.position, endPos.position, moveDuration / maxMoveDuration);
 
-        transform.LookAt(endPos);
+        //transform.LookAt(endPos);
         rb.MovePosition(NewPos);
     }
   
