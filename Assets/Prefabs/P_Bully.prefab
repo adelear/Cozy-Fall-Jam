@@ -108,8 +108,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 0.99999994, z: 0.19999999}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 2.028801, y: 2.890526, z: 0.20000906}
+  m_Center: {x: -0.019123077, y: 1.8241732, z: -0.0000023388582}
 --- !u!54 &6566549193894474701
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -119,7 +119,7 @@ Rigidbody:
   m_GameObject: {fileID: 1290097396668086063}
   serializedVersion: 4
   m_Mass: 0.0000001
-  m_Drag: 0
+  m_Drag: 5
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -132,7 +132,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
@@ -154,18 +154,18 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   spriteRenderer: {fileID: 0}
-  bullySpeed: 4
+  bullySpeed: 20
   maxCandyToLoose: 5
-  radius: 25
+  radius: 50
   angle: 360
-  maxDistance: 20
+  maxDistance: 45
   attackRate: 5
-  rangeOfAttack: 3
-  patrolDistThreshhold: 0
+  rangeOfAttack: 5
+  patrolDistThreshhold: 0.9
   waitAtPatrolPoint: 3
-  knockbackForce: 20
-  obstacleOvoidanceRadius: 1
-  obstacleOvoidanceDistance: 2
+  knockbackForce: 50
+  obstacleOvoidanceRadius: 5
+  obstacleOvoidanceDistance: 5
   takeCandy: {fileID: 8300000, guid: 20322de94ef218d4b9a5983e43b56857, type: 3}
   playerLayerMask:
     serializedVersion: 2
