@@ -394,9 +394,10 @@ MonoBehaviour:
   maxCandyToGive: 5
   minCandyToGive: 0
   askForCandyCooldown: 10
-  popupTextManager: {fileID: 0}
   slider: {fileID: 4565374670987221543}
+  npcStealCandy: 0
   canAskForCandy: 0
+  candyGiveClip: {fileID: 8300000, guid: e10c8867272615441bcfc032a89ae583, type: 3}
   worldTextPos: {fileID: 56280594518520997}
 --- !u!1 &7562524601631618729
 GameObject:

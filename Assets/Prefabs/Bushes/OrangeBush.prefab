@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   leaveVFX: {fileID: 7523808246674712003}
-  bushEnterFX: {fileID: 0}
+  bushEnterFX: {fileID: 8300000, guid: 6a81e9b71c277c844bf5c25469505734, type: 3}
 --- !u!1001 &3971469548349842118
 PrefabInstance:
   m_ObjectHideFlags: 0

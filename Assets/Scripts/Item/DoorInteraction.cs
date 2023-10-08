@@ -16,6 +16,8 @@ public class DoorInteraction : MonoBehaviour
     private float lastTimeAskedCandy;
     private float currentTime;
 
+    [SerializeField] private AudioClip candyGiveClip;
+
     [SerializeField] private Transform worldTextPos;
 
 
@@ -49,6 +51,8 @@ public class DoorInteraction : MonoBehaviour
 
                 canAskForCandy = false;
                 lastTimeAskedCandy = Time.time;
+
+                AudioManager.Instance.PlayAudioSFX(candyGiveClip);
             }
         }
 
