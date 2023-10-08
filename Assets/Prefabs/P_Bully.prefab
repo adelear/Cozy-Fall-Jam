@@ -164,8 +164,8 @@ MonoBehaviour:
   patrolDistThreshhold: 0.9
   waitAtPatrolPoint: 3
   knockbackForce: 50
-  obstacleOvoidanceRadius: 5
-  obstacleOvoidanceDistance: 5
+  obstacleOvoidanceRadius: 1
+  obstacleOvoidanceDistance: 1
   takeCandy: {fileID: 8300000, guid: 20322de94ef218d4b9a5983e43b56857, type: 3}
   playerLayerMask:
     serializedVersion: 2
@@ -175,7 +175,7 @@ MonoBehaviour:
     m_Bits: 256
   obstacleToAvoid:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
 --- !u!95 &7965598151460335828
 Animator:
   serializedVersion: 5
