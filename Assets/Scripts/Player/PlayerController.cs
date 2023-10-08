@@ -66,7 +66,7 @@ public class PlayerController : MonoBehaviour
             walkingSource.Stop();
 
         anim.SetFloat("hValue", inputVector.x); //Walking left and right
-        anim.SetFloat("vValue", inputVector.y); //Walking forward
+        //anim.SetFloat("vValue", inputVector.y); //Walking forward
 
         if (inputVector.x < 0) spriteRenderer.flipX = false;
         else spriteRenderer.flipX = true; 
