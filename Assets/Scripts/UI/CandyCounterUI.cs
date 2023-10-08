@@ -34,8 +34,8 @@ public class CandyCounterUI : MonoBehaviour
     private void Player_CandyChangedCallback(PlayerController player)
     {
         var data = LevelManager.Instance.GetCurrentLevelData();
-        float ratio = LevelManager.Instance.GetCandyGiven() / data.requiredTreats;
-
+        float ratio = ((float)LevelManager.Instance.GetCandyGiven()) / ((float)data.requiredTreats);
+        Debug.Log($"Ratio is: {ratio}");
         candyPlayerFill.fillAmount = player.GetCandyRatio();
         candyMonsterFill.fillAmount = ratio;
 
