@@ -153,9 +153,9 @@ public class PopupTextManager : MonoBehaviour
         // 0,4-6 == neutral. >7 == positive, <4 cranky, 0 == bad
         if (candyValue > 6) txtCategory = textCategory.positive;
         else if (candyValue < 4) txtCategory = textCategory.cranky;
-        else if (candyValue == 0) txtCategory = textCategory.bad;
         else txtCategory = textCategory.nuetral;
 
+        if (candyValue == 0) txtCategory = textCategory.bad;
         // based on the amount of candy given, we update our category and generate a random string from the desired list.
         int randNum = 0;
 

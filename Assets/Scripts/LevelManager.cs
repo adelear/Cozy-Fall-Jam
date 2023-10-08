@@ -4,8 +4,6 @@ using UnityEngine.SceneManagement;
 public class LevelManager : MonoBehaviour
 {
     public static LevelManager Instance { get; private set; }
-
-    [SerializeField] private WorldClock timer;
     [SerializeField] private MonsterManager monster;
 
     //[SerializeField] private int startingLevel = 0;
@@ -38,7 +36,6 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
-        if (timer == null) Debug.Log("Add WorldClock to Level Manager Script!");
         if (monster == null) Debug.Log("Add MonsterManager to Level Manager Script!");
         GameManager.Instance.SwitchState(GameState.GAME);
         string activeSceneName = SceneManager.GetActiveScene().name;
@@ -103,7 +100,7 @@ public class LevelManager : MonoBehaviour
 
     private bool LevelCompleted()
     {
-        if (currentTime >= timer.GetMaxTime() || monster.GetMonsterTreats() >= levels[currentLevel].requiredTreats)
+        if (currentTime >= GetMaxTime() || monster.GetMonsterTreats() >= levels[currentLevel].requiredTreats)
         {
             return true;
         }
@@ -138,5 +135,10 @@ public class LevelManager : MonoBehaviour
     public int GetMaxCarriedTreats()
     {
         return levels[GetCurrentLevel()].maxCarriedTreats;   
+    }
+
+    public int GetMaxTime()
+    {
+        return levels[GetCurrentLevel()].maxTime;  
     }
 }

@@ -331,7 +331,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &3674730532332541789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -380,7 +380,6 @@ MonoBehaviour:
   - Yea, you look like an airhead
   - "Who\u2019s disturbing my peace?"
   - "What\u2019s all this commotion?"
-  - 'The bowl appears empty '
   - Kids and those fancy costumes
   - "Frankly, I don\u2019t think you're that scarry"
   - "Pick one quick, I\u2019m not getting any younger"

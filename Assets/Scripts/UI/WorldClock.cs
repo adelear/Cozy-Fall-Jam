@@ -10,6 +10,10 @@ public class WorldClock : MonoBehaviour
     [SerializeField] private float maxTime;
     private float currentTime;
 
+    private void Start()
+    {
+        SetMaxTime(LevelManager.Instance.GetMaxTime()); 
+    }
     private void Update()
     {
         if (GameManager.Instance.GetCurrentState() == GameState.GAME)
@@ -28,6 +32,11 @@ public class WorldClock : MonoBehaviour
     public float GetMaxTime()
     {
         return maxTime; 
+    }
+
+    public void SetMaxTime(int t)
+    {
+        maxTime = t;  
     }
 
     public float GetCurrentTime()

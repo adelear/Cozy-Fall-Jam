@@ -44,20 +44,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b302996ace63c441a8f3d7292468429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: {fileID: 0}
   monster: {fileID: 0}
   levels:
   - requiredTreats: 10
     maxCarriedTreats: 20
+    maxTime: 60
   - requiredTreats: 20
     maxCarriedTreats: 20
+    maxTime: 120
   - requiredTreats: 30
     maxCarriedTreats: 20
+    maxTime: 180
   - requiredTreats: 40
     maxCarriedTreats: 20
+    maxTime: 240
   - requiredTreats: 50
     maxCarriedTreats: 20
+    maxTime: 300
   - requiredTreats: 60
     maxCarriedTreats: 20
+    maxTime: 360
   - requiredTreats: 80
     maxCarriedTreats: 20
+    maxTime: 420

@@ -33608,17 +33608,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3603410060915701493, guid: 4b463f74dd8f39f49995da12642d8a0a, type: 3}
   m_PrefabInstance: {fileID: 1185383510}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1136999852 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7439566488602905283, guid: 5045685926738e44cb2a7a5a467f15da, type: 3}
-  m_PrefabInstance: {fileID: 273812164}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39562d018b5b6eb439fb9243214edf7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1142798754 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3590886499013519315, guid: 6096835c2685f3448a22ff34be676d49, type: 3}
@@ -36557,10 +36546,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4223869389114862677, guid: c8d17a79b4ec1a84e8ce496ae3df4475, type: 3}
-      propertyPath: timer
-      value: 
-      objectReference: {fileID: 1136999852}
     - target: {fileID: 4223869389114862677, guid: c8d17a79b4ec1a84e8ce496ae3df4475, type: 3}
       propertyPath: monster
       value: 
