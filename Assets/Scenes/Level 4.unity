@@ -1830,146 +1830,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1692931998067047087, guid: 5045685926738e44cb2a7a5a467f15da, type: 3}
-      propertyPath: Dialogues.Array.size
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 1692931998067047087, guid: 5045685926738e44cb2a7a5a467f15da, type: 3}
-      propertyPath: Dialogues.Array.data[0].dialogueText
-      value: FINALLY
-      objectReference: {fileID: 0}
-    - target: {fileID: 1692931998067047087, guid: 5045685926738e44cb2a7a5a467f15da, type: 3}
-      propertyPath: Dialogues.Array.data[1].dialogueText
-      value: "\u2026.. Hey, this is hard work you know."
-      objectReference: {fileID: 0}
-    - target: {fileID: 1692931998067047087, guid: 5045685926738e44cb2a7a5a467f15da, type: 3}
-      propertyPath: Dialogues.Array.data[2].dialogueText
-      value: As is my destructive RESTRAINT
-      objectReference: {fileID: 0}
-    - target: {fileID: 1692931998067047087, guid: 5045685926738e44cb2a7a5a467f15da, type: 3}
-      propertyPath: Dialogues.Array.data[3].dialogueText
-      value: "\u2026Is there a deeper issue?"
-      objectReference: {fileID: 0}
-    - target: {fileID: 1692931998067047087, guid: 5045685926738e44cb2a7a5a467f15da, type: 3}
-      propertyPath: Dialogues.Array.data[4].dialogueText
-      value: Uh- the- MY appetite
-      objectReference: {fileID: 0}
-    - target: {fileID: 1692931998067047087, guid: 5045685926738e44cb2a7a5a467f15da, type: 3}
-      propertyPath: Dialogues.Array.data[5].dialogueText
-      value: Did you have an okay home life?appetite
-      objectReference: {fileID: 0}
-    - target: {fileID: 1692931998067047087, guid: 5045685926738e44cb2a7a5a467f15da, type: 3}
-      propertyPath: Dialogues.Array.data[6].dialogueText
-      value: My domestic development is of no CONCERN to the likes of you
-      objectReference: {fileID: 0}
-    - target: {fileID: 1692931998067047087, guid: 5045685926738e44cb2a7a5a467f15da, type: 3}
-      propertyPath: Dialogues.Array.data[7].dialogueText
-      value: Why did you yell out concern?
-      objectReference: {fileID: 0}
-    - target: {fileID: 1692931998067047087, guid: 5045685926738e44cb2a7a5a467f15da, type: 3}
-      propertyPath: Dialogues.Array.data[8].dialogueText
-      value: '*whisper* Why did I..?'
-      objectReference: {fileID: 0}
-    - target: {fileID: 1692931998067047087, guid: 5045685926738e44cb2a7a5a467f15da, type: 3}
-      propertyPath: Dialogues.Array.data[9].dialogueText
-      value: GHOULISH CREATURE
-      objectReference: {fileID: 0}
-    - target: {fileID: 1692931998067047087, guid: 5045685926738e44cb2a7a5a467f15da, type: 3}
-      propertyPath: Dialogues.Array.data[0].ghostDialogue
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1692931998067047087, guid: 5045685926738e44cb2a7a5a467f15da, type: 3}
-      propertyPath: Dialogues.Array.data[10].dialogueText
-      value: "Isn't that a zombie? I\u2019m a gh-"
-      objectReference: {fileID: 0}
-    - target: {fileID: 1692931998067047087, guid: 5045685926738e44cb2a7a5a467f15da, type: 3}
-      propertyPath: Dialogues.Array.data[11].dialogueText
-      value: YOUR MANIPULATIONS ARE AS TRANSPARENT AS YOUR PHYSIQUE
-      objectReference: {fileID: 0}
-    - target: {fileID: 1692931998067047087, guid: 5045685926738e44cb2a7a5a467f15da, type: 3}
-      propertyPath: Dialogues.Array.data[12].dialogueText
-      value: Huh?-
-      objectReference: {fileID: 0}
-    - target: {fileID: 1692931998067047087, guid: 5045685926738e44cb2a7a5a467f15da, type: 3}
-      propertyPath: Dialogues.Array.data[13].dialogueText
-      value: DEPART
-      objectReference: {fileID: 0}
-    - target: {fileID: 1692931998067047087, guid: 5045685926738e44cb2a7a5a467f15da, type: 3}
-      propertyPath: Dialogues.Array.data[14].dialogueText
-      value: Return with my Holloween offering.
-      objectReference: {fileID: 0}
-    - target: {fileID: 1692931998067047087, guid: 5045685926738e44cb2a7a5a467f15da, type: 3}
-      propertyPath: Dialogues.Array.data[15].dialogueText
-      value: "Isn't that a zombie? I\u2019m a gh-"
-      objectReference: {fileID: 0}
-    - target: {fileID: 1692931998067047087, guid: 5045685926738e44cb2a7a5a467f15da, type: 3}
-      propertyPath: Dialogues.Array.data[1].ghostDialogue
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1692931998067047087, guid: 5045685926738e44cb2a7a5a467f15da, type: 3}
-      propertyPath: Dialogues.Array.data[2].ghostDialogue
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1692931998067047087, guid: 5045685926738e44cb2a7a5a467f15da, type: 3}
-      propertyPath: Dialogues.Array.data[3].ghostDialogue
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1692931998067047087, guid: 5045685926738e44cb2a7a5a467f15da, type: 3}
-      propertyPath: Dialogues.Array.data[4].ghostDialogue
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1692931998067047087, guid: 5045685926738e44cb2a7a5a467f15da, type: 3}
-      propertyPath: Dialogues.Array.data[5].ghostDialogue
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1692931998067047087, guid: 5045685926738e44cb2a7a5a467f15da, type: 3}
-      propertyPath: Dialogues.Array.data[6].ghostDialogue
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1692931998067047087, guid: 5045685926738e44cb2a7a5a467f15da, type: 3}
-      propertyPath: Dialogues.Array.data[7].ghostDialogue
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1692931998067047087, guid: 5045685926738e44cb2a7a5a467f15da, type: 3}
-      propertyPath: Dialogues.Array.data[8].ghostDialogue
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1692931998067047087, guid: 5045685926738e44cb2a7a5a467f15da, type: 3}
-      propertyPath: Dialogues.Array.data[9].ghostDialogue
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1692931998067047087, guid: 5045685926738e44cb2a7a5a467f15da, type: 3}
-      propertyPath: Dialogues.Array.data[10].ghostDialogue
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1692931998067047087, guid: 5045685926738e44cb2a7a5a467f15da, type: 3}
-      propertyPath: Dialogues.Array.data[11].ghostDialogue
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1692931998067047087, guid: 5045685926738e44cb2a7a5a467f15da, type: 3}
-      propertyPath: Dialogues.Array.data[12].ghostDialogue
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1692931998067047087, guid: 5045685926738e44cb2a7a5a467f15da, type: 3}
-      propertyPath: Dialogues.Array.data[13].ghostDialogue
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1692931998067047087, guid: 5045685926738e44cb2a7a5a467f15da, type: 3}
-      propertyPath: Dialogues.Array.data[14].ghostDialogue
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1692931998067047087, guid: 5045685926738e44cb2a7a5a467f15da, type: 3}
-      propertyPath: Dialogues.Array.data[15].ghostDialogue
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2403928901556133859, guid: 5045685926738e44cb2a7a5a467f15da, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8037999225228442433, guid: 5045685926738e44cb2a7a5a467f15da, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: -2776013934706798140, guid: f00ea2bad99808749bd81939c5badded, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -37274,7 +37134,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8040478365484283700, guid: 1926456826bd86a4f827eee1ee982119, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 1926456826bd86a4f827eee1ee982119, type: 3}
 --- !u!1001 &2716519167566341971
 PrefabInstance:
