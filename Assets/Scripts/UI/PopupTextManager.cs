@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class PopupTextManager : MonoBehaviour
 {
+    public static PopupTextManager Instance { get; private set; } 
     //this script is used to display world text popups throughout the map
     //we meed to set its position and text based on - where the player interacted with house - how much candy was given
 
@@ -20,16 +21,29 @@ public class PopupTextManager : MonoBehaviour
     [SerializeField] Image popupBackground;
     [SerializeField] TextMeshProUGUI popupText;
     [SerializeField] CandyPopupManager candyPopup;
-    
+
 
     //Strings and categories
+    [SerializeField] List<string> badStrings = new List<string>(); 
     [SerializeField] List<string> crankyStrings = new List<string>();
     [SerializeField] List<string> nuetralStrings = new List<string>();
     [SerializeField] List<string> positiveStrings = new List<string>();
 
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;  
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    } 
     enum textCategory
     {
         random,
+        bad, 
         cranky,
         nuetral,
         positive
@@ -124,37 +138,56 @@ public class PopupTextManager : MonoBehaviour
     {
         txtCategory = textCategory.random;
 
-        //4-6 == nuetral. >7 == positive, <4 cranky
+        // 0,4-6 == neutral. >7 == positive, <4 cranky, 0 == bad
         if (candyValue > 6) txtCategory = textCategory.positive;
         else if (candyValue < 4) txtCategory = textCategory.cranky;
+        else if (candyValue == 0) txtCategory = textCategory.bad;
         else txtCategory = textCategory.nuetral;
 
-        //based on the amount of candy given , we update our category and generate a random string from the desired list.
+        // based on the amount of candy given, we update our category and generate a random string from the desired list.
         int randNum = 0;
 
         switch (txtCategory)
         {
+            case textCategory.bad:
+                if (badStrings.Count > 0)
+                {
+                    randNum = UnityEngine.Random.Range(0, badStrings.Count);
+                    popupText.text = badStrings[randNum];
+                }
+                break;
+
             case textCategory.cranky:
-                
-                randNum = UnityEngine.Random.Range(0, crankyStrings.Count);
-                popupText.text = crankyStrings[randNum];
+                if (crankyStrings.Count > 0)
+                {
+                    randNum = UnityEngine.Random.Range(0, crankyStrings.Count);
+                    popupText.text = crankyStrings[randNum];
+                }
                 break;
 
             case textCategory.nuetral:
-
-                randNum = UnityEngine.Random.Range(0, nuetralStrings.Count);
-                popupText.text = nuetralStrings[randNum];
+                if (nuetralStrings.Count > 0)
+                {
+                    randNum = UnityEngine.Random.Range(0, nuetralStrings.Count);
+                    popupText.text = nuetralStrings[randNum];
+                }
                 break;
-            
+
             case textCategory.positive:
-
-                randNum = UnityEngine.Random.Range(0, positiveStrings.Count);
-                popupText.text = positiveStrings[randNum];
+                if (positiveStrings.Count > 0)
+                {
+                    randNum = UnityEngine.Random.Range(0, positiveStrings.Count);
+                    popupText.text = positiveStrings[randNum];
+                }
                 break;
-            
+
             case textCategory.random:
                 break;
-        }
 
-    }
+            default:
+                // Handle unexpected category or empty list here
+                break;
+        }
+    } 
+
 }

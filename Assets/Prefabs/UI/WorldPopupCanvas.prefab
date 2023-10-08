@@ -331,7 +331,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &3674730532332541789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -365,25 +365,30 @@ MonoBehaviour:
   popupBackground: {fileID: 5746204686638390017}
   popupText: {fileID: 1978617389573896087}
   candyPopup: {fileID: 6628434388590428552, guid: 973352bd349232b40a1c1add33558a0d, type: 3}
+  badStrings:
+  - They ransacked all the candy left out
+  - Go away, I ran out of candy
+  - Oh, I forgot the candy down in the basement. Come on in.
+  - IF THERE IS ONE MORE KNOCK I WILL HUNT YOU DOWN
+  - GO AWAY
+  - ITS TOO LATE
+  - This bowl has been picked clean
+  - 'The bowl appears empty '
+  - lame costume
+  - UR COSTUME SUCKS
   crankyStrings:
   - Yea, you look like an airhead
   - "Who\u2019s disturbing my peace?"
   - "What\u2019s all this commotion?"
-  - Go away, I ran out of candy
   - 'The bowl appears empty '
-  - This bowl has been picked clean
-  - They ransacked all the candy left out
   - Kids and those fancy costumes
   - "Frankly, I don\u2019t think you're that scarry"
   - "Pick one quick, I\u2019m not getting any younger"
   - No, no. That will do. Leave please
   - Another one with just a sheet. Your parents set the bar high didn't they?
   - ITS TOO LATE
-  - GO AWAY
-  - IF THERE IS ONE MORE KNOCK I WILL HUNT YOU DOWN
   - Get lost before I dump spiders on your head
   - "Don\u2019t grab aggressively, only one"
-  - Oh, I forgot the candy down in the basement. Come on in.
   nuetralStrings:
   - Spooky costumes
   - Have some candy
@@ -406,6 +411,8 @@ MonoBehaviour:
   - No chocolate, sorry
   - Here, have some floss too
   - "I\u2019m giving out toothbrushes! Visit the dentist okay?"
+  - 'you''re going for the spooky vibe, right ?? '
+  - 'hmm, looks like a minimalist halloween '
   positiveStrings:
   - You look adorable!
   - Marty! Come look at this one!
@@ -427,4 +434,5 @@ MonoBehaviour:
   - Call me Willy Wonka
   - You have arrived to Candy mountain!
   - This bowl looks fresh & full
+  - w OWWW, you had me fooled! i thought you were a real ghost
   test: 0
