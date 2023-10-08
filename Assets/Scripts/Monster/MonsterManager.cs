@@ -54,6 +54,7 @@ public class MonsterManager : MonoBehaviour
                 AudioManager.Instance.PlayAudioSFX(giveCandy); 
                 int treatsGiven = playerController.GetCurrentCandy();
                 monsterTreats += treatsGiven;
+                LevelManager.Instance.candyGiven = monsterTreats;
                 playerController.LoseCandy(treatsGiven);
             }
         }
