@@ -35,7 +35,6 @@ public class LevelManager : MonoBehaviour
         }
 
         if (monster == null) Debug.Log("Add MonsterManager to Level Manager Script!");
-        GameManager.Instance.SwitchState(GameState.GAME);
         string activeSceneName = SceneManager.GetActiveScene().name;
         Debug.Log("Active Scene Name: " + activeSceneName);
 
@@ -52,7 +51,7 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
-
+        GameManager.Instance.SwitchState(GameState.GAME);
     } 
 
     private void Update()
