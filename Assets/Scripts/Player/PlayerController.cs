@@ -52,7 +52,12 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (GameManager.Instance.GetCurrentState() != GameState.GAME) return; 
+        if (GameManager.Instance.GetCurrentState() != GameState.GAME)
+        {
+            inputVector.x = 0; 
+            inputVector.y = 0; 
+            return;
+        }
         inputVector.x = Input.GetAxis("Horizontal");
         inputVector.y = Input.GetAxis("Vertical");
 
