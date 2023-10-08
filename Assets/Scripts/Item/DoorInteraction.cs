@@ -15,6 +15,7 @@ public class DoorInteraction : MonoBehaviour
     private float lastTimeAskedCandy;
     private float currentTime;
 
+    [SerializeField] private Transform worldTextPos;
 
 
     // Start is called before the first frame update
@@ -40,6 +41,10 @@ public class DoorInteraction : MonoBehaviour
             {
                 int candyToGive = Random.Range(minCandyToGive, maxCandyToGive); 
                 playerController.AddCandy(candyToGive);
+
+                PopupTextManager ptm = GameObject.FindGameObjectWithTag("PopupText").GetComponent<PopupTextManager>();
+                if (ptm) ptm.DisplayPopupAtLocation(worldTextPos.position, candyToGive);
+
                 canAskForCandy = false;
                 lastTimeAskedCandy = Time.time;
             }
