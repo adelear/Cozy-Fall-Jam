@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - PatrolRoute
+  - PopupText
+  - CandyPopup
   layers:
   - Default
   - TransparentFX
@@ -16,8 +18,8 @@ TagManager:
   - Ground
   - Obtruction
   - Obstacle
-  - 
-  - 
+  - House
+  - Bush
   - 
   - 
   - 

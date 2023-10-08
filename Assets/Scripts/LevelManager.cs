@@ -7,6 +7,7 @@ public class LevelManager : MonoBehaviour
 
     [SerializeField] private WorldClock timer;
     [SerializeField] private MonsterManager monster;
+
     //[SerializeField] private int startingLevel = 0;
 
     private int currentLevel = 0;
@@ -50,7 +51,6 @@ public class LevelManager : MonoBehaviour
                 currentLevel = levelNumber - 1;
             }
         }
-
         LevelData currentLevelData = levels[currentLevel];
     }
 

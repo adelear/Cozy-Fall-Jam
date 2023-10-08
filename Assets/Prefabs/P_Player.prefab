@@ -194,7 +194,7 @@ MonoBehaviour:
   canTele: 1
   teleMask:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 247
   isTeleporting: 0
 --- !u!54 &6797598355149948664
 Rigidbody:
