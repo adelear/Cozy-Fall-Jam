@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5237333057751866664}
   - component: {fileID: 4304230398345996690}
   - component: {fileID: 3008226762431699663}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,7 +86,7 @@ GameObject:
   - component: {fileID: 3401264123409384208}
   - component: {fileID: 370665878870341303}
   - component: {fileID: 1896035398807798335}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -159,7 +159,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 56280594518520997}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: WorldTextPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -191,7 +191,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6367396404956045095}
   - component: {fileID: 4565374670987221543}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -282,7 +282,7 @@ GameObject:
   - component: {fileID: 1118665298562860181}
   - component: {fileID: 9181044503594880370}
   - component: {fileID: 1299758693824136349}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -408,7 +408,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4592617196830424179}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -447,7 +447,7 @@ GameObject:
   - component: {fileID: 2939154987062081213}
   - component: {fileID: 2971194678702861246}
   - component: {fileID: 1260025412352236579}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}

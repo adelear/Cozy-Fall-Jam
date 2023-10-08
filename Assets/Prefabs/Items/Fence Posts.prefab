@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5522285445538666614}
   - component: {fileID: 7669041698642224284}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Fence Posts
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -69,6 +69,10 @@ PrefabInstance:
     - target: {fileID: 1543897592919802197, guid: f546714fedaa3e6459512e006130fa63, type: 3}
       propertyPath: m_Name
       value: FencePost
+      objectReference: {fileID: 0}
+    - target: {fileID: 1543897592919802197, guid: f546714fedaa3e6459512e006130fa63, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7463401421762888799, guid: f546714fedaa3e6459512e006130fa63, type: 3}
       propertyPath: m_LocalPosition.x
@@ -132,6 +136,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FencePost (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1543897592919802197, guid: f546714fedaa3e6459512e006130fa63, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 7463401421762888799, guid: f546714fedaa3e6459512e006130fa63, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -193,6 +201,10 @@ PrefabInstance:
     - target: {fileID: 1543897592919802197, guid: f546714fedaa3e6459512e006130fa63, type: 3}
       propertyPath: m_Name
       value: FencePost (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1543897592919802197, guid: f546714fedaa3e6459512e006130fa63, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7463401421762888799, guid: f546714fedaa3e6459512e006130fa63, type: 3}
       propertyPath: m_LocalPosition.x
@@ -256,6 +268,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FencePost (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1543897592919802197, guid: f546714fedaa3e6459512e006130fa63, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 7463401421762888799, guid: f546714fedaa3e6459512e006130fa63, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -317,6 +333,10 @@ PrefabInstance:
     - target: {fileID: 1543897592919802197, guid: f546714fedaa3e6459512e006130fa63, type: 3}
       propertyPath: m_Name
       value: FencePost (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1543897592919802197, guid: f546714fedaa3e6459512e006130fa63, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7463401421762888799, guid: f546714fedaa3e6459512e006130fa63, type: 3}
       propertyPath: m_LocalPosition.x

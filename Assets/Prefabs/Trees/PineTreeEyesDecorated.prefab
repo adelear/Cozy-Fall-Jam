@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8471945180701078120}
   - component: {fileID: 8922581296881813326}
   - component: {fileID: 7061148622793825520}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PineTreeEyesDecorated
   m_TagString: Untagged
   m_Icon: {fileID: 0}
