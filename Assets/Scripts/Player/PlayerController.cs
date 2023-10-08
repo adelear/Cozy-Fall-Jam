@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     [Header("Components")]
     [SerializeField] private float moveSpeed = 5;
     [SerializeField] private int currentCandy = 0;
-    [SerializeField] private int maxCandy = 100;
+    [SerializeField] private int maxCandy;
     [SerializeField] private AnimationCurve CandyToSpeedCurve;
 
     [SerializeField] private Animator anim;
@@ -37,6 +37,7 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
+        maxCandy = LevelManager.Instance.GetMaxCarriedTreats(); 
         if (rb == null)
             rb = GetComponent<Rigidbody>();
 

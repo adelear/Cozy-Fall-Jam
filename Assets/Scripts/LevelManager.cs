@@ -133,4 +133,9 @@ public class LevelManager : MonoBehaviour
         }
         return currentLevel; 
     }
+
+    public int GetMaxCarriedTreats()
+    {
+        return levels[GetCurrentLevel()].maxCarriedTreats;   
+    }
 }

@@ -7,31 +7,27 @@ public class CandyBag : MonoBehaviour
 {
     [SerializeField] private PlayerController playerController;
     [SerializeField] private LevelManager levelManager;
-    [SerializeField] private Sprite smallBag;
-    [SerializeField] private Sprite mediumBag;
-    [SerializeField] private Sprite largeBag;
+    [SerializeField] private Vector3 minScale = new Vector3(0.3f, 1f, 1f);
+    [SerializeField] private Vector3 maxScale = new Vector3(1f, 1f, 1f);
+    private Transform bagTransform; 
 
-    private SpriteRenderer sr; 
-
-    private Sprite currentBag;
     void Start()
     {
-        sr = GetComponent<SpriteRenderer>(); 
+        bagTransform = GetComponent<Transform>(); 
+        Debug.Log("Current Level: " + levelManager.GetCurrentLevel()); 
+    }
 
-        if (levelManager.GetCurrentLevel() > 5)
-        {
-            currentBag = largeBag;
-        }
-        else if (levelManager.GetCurrentLevel() > 2)
-        {
-            currentBag = mediumBag;
-        }
-        else
-        {
-            currentBag = smallBag;
-        }
-        sr.sprite = currentBag;
+    private void Update()
+    {
+        float currentCandy = playerController.GetCurrentCandy();
+        float maxCarriedTreats = LevelManager.Instance.GetMaxCarriedTreats();
 
-        Debug.Log("Current Level:" + levelManager.GetCurrentLevel()); 
+        // Calculate the scale factor based on the candy ratio
+        float candyRatio = Mathf.Clamp01(currentCandy / maxCarriedTreats);
+        float newScaleX = Mathf.Lerp(minScale.x, maxScale.x, candyRatio);
+
+        // Apply the new X-scale to the bag's transform
+        Vector3 newScale = new Vector3(newScaleX, 1, 1);
+        bagTransform.localScale = newScale;    
     }
 }
