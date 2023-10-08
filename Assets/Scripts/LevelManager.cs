@@ -55,28 +55,33 @@ public class LevelManager : MonoBehaviour
 
     private void Update()
     {
+        if (GameManager.Instance.GetCurrentState() != GameState.GAME) return;
+
         candyGiven = monster.GetMonsterTreats();
 
         if (PlayerWinsLevel())
         {
-            if ((currentLevel+1) < levels.Length)
-            {
-                currentLevel++; 
-                LoadLevel(currentLevel);
-                return;
-            }
-            else
-            {
-                SceneTransitionManager.Instance.LoadScene("WinScene"); 
-            }
+            GameManager.Instance.SwitchState(GameState.WIN);
+            return;
         }
-        if (LevelCompleted())
-        {
-            Debug.Log("GameOver!");
-        }
+
         else
         {
             currentTime += Time.deltaTime;
+        }
+    }
+
+    public void LoadNextLevel()
+    {
+        if ((currentLevel + 1) < levels.Length)
+        {
+            currentLevel++;
+            LoadLevel(currentLevel);
+            return;
+        }
+        else
+        {
+            SceneTransitionManager.Instance.LoadScene("WinScene");
         }
     }
 
