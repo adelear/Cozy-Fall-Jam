@@ -154,7 +154,7 @@ MonoBehaviour:
   imageHighlightColor: {r: 0.9838709, g: 1, b: 0.9354838, a: 1}
   normalTextColor: {r: 244, g: 248, b: 232, a: 1}
   hoverTextColor: {r: 0, g: 0, b: 0, a: 1}
-  hoverSound: {fileID: 0}
+  hoverSound: {fileID: 8300000, guid: a0ba0a4cc174c4745bf1100a4f6c541c, type: 3}
   clickSound: {fileID: 0}
   transitionTime: 0.05
   transitionCurve:
@@ -339,7 +339,7 @@ MonoBehaviour:
   m_text: Hello?
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 50981e8b78667194eb345c7bd22ec03d, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  m_sharedMaterial: {fileID: 2373884623454198472, guid: 50981e8b78667194eb345c7bd22ec03d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -369,7 +369,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535

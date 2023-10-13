@@ -7,6 +7,9 @@ public class CandyCounterUI : MonoBehaviour
 {
     [Header("Components")]
     [SerializeField] private TextMeshProUGUI candyText;
+    [SerializeField] private TextMeshProUGUI monsterCandyText;
+    [SerializeField] private Image candyPlayerFill;
+    [SerializeField] private Image candyMonsterFill;
     [SerializeField] private Image candyImage;
 
     [SerializeField] private float wobbleTime = 0.3f;
@@ -16,16 +19,33 @@ public class CandyCounterUI : MonoBehaviour
 
     private bool isWobbling = false;
 
-    private void OnEnable()
+    private void Start()
     {
         PlayerController.OnPlayerCandyChanged += Player_CandyChangedCallback;
+
+        var data = LevelManager.Instance.GetCurrentLevelData();
+        int remaining = data.requiredTreats - LevelManager.Instance.GetCandyGiven();
+        monsterCandyText.text = $"0 / {data.requiredTreats} Candy Given";
+
+        candyMonsterFill.fillAmount = 0;
+        candyPlayerFill.fillAmount = 0;
     }
 
     private void Player_CandyChangedCallback(PlayerController player)
     {
-        candyText.text = player.GetCurrentCandy().ToString();
-        if (isWobbling == false)
-            StartCoroutine(HandleCandyEffect());
+        var data = LevelManager.Instance.GetCurrentLevelData();
+        float ratio = ((float)LevelManager.Instance.GetCandyGiven()) / ((float)data.requiredTreats);
+        Debug.Log($"Ratio is: {ratio}");
+        candyPlayerFill.fillAmount = player.GetCandyRatio();
+        candyMonsterFill.fillAmount = ratio;
+
+        int remaining = LevelManager.Instance.GetCurrentLevelData().requiredTreats - LevelManager.Instance.GetCandyGiven(); 
+        monsterCandyText.text = $"{player.GetCurrentCandy()} / {remaining} Candies";
+        //monsterCandyText.text = $"Remaining Candy: {remaining}";
+
+        //candyText.text = player.GetCurrentCandy().ToString();
+        //if (isWobbling == false)
+        //    StartCoroutine(HandleCandyEffect());
     }
 
     private IEnumerator HandleCandyEffect()
@@ -50,8 +70,8 @@ public class CandyCounterUI : MonoBehaviour
         
     }
 
-    private void OnDisable()
+    private void OnDestroy()
     {
-        PlayerController.OnPlayerCandyChanged += Player_CandyChangedCallback;
-    }
+        PlayerController.OnPlayerCandyChanged -= Player_CandyChangedCallback;
+    } 
 }

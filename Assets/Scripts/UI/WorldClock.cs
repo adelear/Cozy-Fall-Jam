@@ -8,11 +8,12 @@ public class WorldClock : MonoBehaviour
     [SerializeField] private Image clockFill;
     [SerializeField] private RectTransform clockHandle;
     [SerializeField] private float maxTime;
-
-
-
     private float currentTime;
 
+    private void Start()
+    {
+        SetMaxTime(LevelManager.Instance.GetMaxTime()); 
+    }
     private void Update()
     {
         if (GameManager.Instance.GetCurrentState() == GameState.GAME)
@@ -27,4 +28,20 @@ public class WorldClock : MonoBehaviour
             }
         }
     }    
+
+    public float GetMaxTime()
+    {
+        return maxTime; 
+    }
+
+    public void SetMaxTime(int t)
+    {
+        maxTime = t;
+        maxTime = Mathf.Max(0.01f, maxTime);
+    }
+
+    public float GetCurrentTime()
+    {
+        return currentTime; 
+    }
 }

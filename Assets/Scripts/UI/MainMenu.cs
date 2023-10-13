@@ -61,12 +61,12 @@ public class MainMenu : MonoBehaviour
     private void OnPlayBtnClicked()
     {
         //menuAnim.PlayAnimation();
-        StartCoroutine(WaitOneSecond());
+        //StartCoroutine(WaitOneSecond());
     }
 
     private IEnumerator WaitOneSecond()
     {
         yield return new WaitForSeconds(0.5f);
-        SceneManager.LoadScene("WhiteBoxLevel");  
+        SceneManager.LoadScene("Level 1");  
     }
 }

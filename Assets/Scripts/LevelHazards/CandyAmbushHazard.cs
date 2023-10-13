@@ -5,8 +5,8 @@ using UnityEngine;
 public class CandyAmbushHazard : LevelHazardBase
 {
     [SerializeField] float spawnRadius;
-    [SerializeField] float spawnCount;
     [SerializeField] float groundPos;
+    [SerializeField] int spawnCount;
     
     [SerializeField] GameObject bullyGameObject;
 
@@ -28,6 +28,8 @@ public class CandyAmbushHazard : LevelHazardBase
         {
             timeAtHit = Time.time;
             SpawnBullysInRadius();
+
+            StartCoroutine(CooldownLifetime());
         }
     }
 
@@ -44,14 +46,49 @@ public class CandyAmbushHazard : LevelHazardBase
     {
         if (!bullyGameObject) return;
 
-        for (int i = 0; i < spawnCount; i++)
+        int newSpawnCount = UnityEngine.Random.Range(1, spawnCount + 1);
+
+        for (int i = 0; i < newSpawnCount; i++)
         {
             GameObject tempBully = Instantiate(bullyGameObject, transform.position, Quaternion.identity);
 
             Vector3 newPos = Random.insideUnitSphere * spawnRadius;
 
-            tempBully.transform.position = new Vector3(newPos.x, groundPos, newPos.z);
+            //if we spawn too close
+            while (Vector3.Distance(tempBully.transform.position += new Vector3(newPos.x, 0, newPos.z), transform.position) < 4)
+                newPos = Random.insideUnitSphere * spawnRadius;
+
+            tempBully.transform.position += new Vector3(newPos.x, 0, newPos.z);
+
+            FollowPlayer bully = tempBully.GetComponent<FollowPlayer>();
+
+            bully.SetPatrolRotues(GeneratePatrolRoute());
+
         }
+
+         
+    }
+    IEnumerator CooldownLifetime()
+    {
+        SpriteRenderer tempSprite = transform.GetComponent<SpriteRenderer>();
+
+        if (tempSprite) tempSprite.color = new Color(tempSprite.color.r, tempSprite.color.g, tempSprite.color.b, 0);
+
+        yield return new WaitForSeconds(coolDown);
+
+        if (tempSprite) tempSprite.color = new Color(tempSprite.color.r, tempSprite.color.g, tempSprite.color.b, 1);
+    }
+
+    private List<Transform> GeneratePatrolRoute()
+    {
+        List<Transform> newRoute = new List<Transform>(4);
+
+        for (int i =0; i < transform.childCount; i++)
+        {
+            newRoute.Add(transform.GetChild(0));
+        }
+
+        return newRoute;
     }
 
 }

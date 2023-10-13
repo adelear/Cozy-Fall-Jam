@@ -11,11 +11,15 @@ public class DoorInteraction : MonoBehaviour
     [SerializeField] public Slider slider; // temporary HUD Slider
     private PlayerController playerController;
     private bool isOnDoor;
+    [SerializeField] private bool npcStealCandy; 
     [SerializeField] private bool canAskForCandy;
     private float lastTimeAskedCandy;
     private float currentTime;
 
+    [SerializeField] private AudioClip candyGiveClip;
 
+    [SerializeField] private Transform worldTextPos;
+    [SerializeField] private GameObject popup;
 
     // Start is called before the first frame update
     void Start()
@@ -40,13 +44,28 @@ public class DoorInteraction : MonoBehaviour
             {
                 int candyToGive = Random.Range(minCandyToGive, maxCandyToGive); 
                 playerController.AddCandy(candyToGive);
+
+                //PopupTextManager ptm = GameObject.FindGameObjectWithTag("PopupText").GetComponent<PopupTextManager>();
+ 
+                PopupTextManager.Instance.DisplayPopupAtLocation(worldTextPos.position, candyToGive);   
+
                 canAskForCandy = false;
                 lastTimeAskedCandy = Time.time;
+
+                AudioManager.Instance.PlayAudioSFX(candyGiveClip);
             }
         }
-         // this is Temporary HUD
-      
-            UpdateDoorHUDTimer(Mathf.Clamp(((currentTime) / askForCandyCooldown), 0, 1));
+
+        if (npcStealCandy && canAskForCandy) 
+        {
+            //int candyToGive = Random.Range(minCandyToGive, maxCandyToGive);
+            //PopupTextManager.Instance.DisplayPopupAtLocation(worldTextPos.position, candyToGive);
+            canAskForCandy = false;
+            lastTimeAskedCandy = Time.time;
+        } 
+        // this is Temporary HUD
+
+        UpdateDoorHUDTimer(Mathf.Clamp(((currentTime) / askForCandyCooldown), 0, 1));
        
     }
 
@@ -58,8 +77,15 @@ public class DoorInteraction : MonoBehaviour
             playerController = other.GetComponent<PlayerController>();
             isOnDoor = true;
             //canAskForCandy = true;
+            popup.SetActive(true);
         }
+        if (other.GetComponent<NPC_Child>())
+        {
+            Debug.Log("NPC at door"); 
+            npcStealCandy = true; 
+        } 
     }
+
 
     private void OnTriggerExit(Collider other)
     {
@@ -67,6 +93,11 @@ public class DoorInteraction : MonoBehaviour
         {
             Debug.Log("Player went away");
             isOnDoor = false;
+            popup.SetActive(false);
+        }
+        if (other.GetComponent<NPC_Child>()) 
+        {
+            npcStealCandy = false;  
         }
     }
 
